@@ -52,9 +52,9 @@
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <ProjectReference Include="..\Greeter\Greeter.csproj">
+    <ProjectReference Include="..\Medical\Medical.csproj">
       <Project>{724DFC8C-4B57-4C3F-811C-0463BE2A2829}</Project>
-      <Name>Greeter</Name>
+      <Name>Medical</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

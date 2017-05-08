@@ -28,45 +28,29 @@
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 using System;
-using System.Threading.Tasks;
 using Grpc.Core;
-using Helloworld;
+using Medical;
 
-namespace GreeterServer
+namespace GreeterClient
 {
-    class GreeterImpl : Greeter.GreeterBase
-    {
-        // Server side handler of the SayHello RPC
-        public override Task<HelloReply> SayHello(HelloRequest request, ServerCallContext context)
-        {
-            return Task.FromResult(new HelloReply { Message = "Hello " + request.Name });
-        }
-
-        // Server side handler for the SayHelloAgain RPC
-        public override Task<HelloReply> SayHelloAgain(HelloRequest request, ServerCallContext context)
-        {
-          return Task.FromResult(new HelloReply { Message = "Hello again " + request.Name });
-        }
-  }
-
     class Program
     {
-        const int Port = 50051;
-
         public static void Main(string[] args)
         {
-            Server server = new Server
-            {
-                Services = { Greeter.BindService(new GreeterImpl()) },
-                Ports = { new ServerPort("localhost", Port, ServerCredentials.Insecure) }
-            };
-            server.Start();
+            Channel channel = new Channel("127.0.0.1:50051", ChannelCredentials.Insecure);
 
-            Console.WriteLine("Greeter server listening on port " + Port);
-            Console.WriteLine("Press any key to stop the server...");
+            var client = new Greeter.GreeterClient(channel);
+            String user = "you";
+
+            var reply = client.SayHello(new HelloRequest { Name = user });
+            Console.WriteLine("Greeting: " + reply.Message);
+
+            var secondReply = client.SayHelloAgain(new HelloRequest { Name = user });
+            Console.WriteLine("Greeting: " + secondReply.Message);
+
+            channel.ShutdownAsync().Wait();
+            Console.WriteLine("Press any key to exit...");
             Console.ReadKey();
-
-            server.ShutdownAsync().Wait();
-        }
+    }
     }
 }

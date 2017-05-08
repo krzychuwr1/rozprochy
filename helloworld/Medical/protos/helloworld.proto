@@ -27,30 +27,29 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-using System;
-using Grpc.Core;
-using Helloworld;
+syntax = "proto3";
 
-namespace GreeterClient
-{
-    class Program
-    {
-        public static void Main(string[] args)
-        {
-            Channel channel = new Channel("127.0.0.1:50051", ChannelCredentials.Insecure);
+option java_multiple_files = true;
+option java_package = "io.grpc.examples.helloworld";
+option java_outer_classname = "HelloWorldProto";
+option objc_class_prefix = "HLW";
 
-            var client = new Greeter.GreeterClient(channel);
-            String user = "you";
+package helloworld;
 
-            var reply = client.SayHello(new HelloRequest { Name = user });
-            Console.WriteLine("Greeting: " + reply.Message);
+// The greeting service definition.
+service Greeter {
+  // Sends a greeting
+  rpc SayHello (HelloRequest) returns (HelloReply) {}
+  // Sends another greeting
+  rpc SayHelloAgain (HelloRequest) returns (HelloReply) {}
+}
 
-            var secondReply = client.SayHelloAgain(new HelloRequest { Name = user });
-            Console.WriteLine("Greeting: " + secondReply.Message);
+// The request message containing the user's name.
+message HelloRequest {
+  string name = 1;
+}
 
-            channel.ShutdownAsync().Wait();
-            Console.WriteLine("Press any key to exit...");
-            Console.ReadKey();
-    }
-    }
+// The response message containing the greetings
+message HelloReply {
+  string message = 1;
 }

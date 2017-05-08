@@ -36,6 +36,6 @@ cd /d %~dp0
 
 set TOOLS_PATH=packages\Grpc.Tools.1.2.2\tools\windows_x86
 
-%TOOLS_PATH%\protoc.exe -I../../protos --csharp_out Greeter  ../../protos/helloworld.proto --grpc_out Greeter --plugin=protoc-gen-grpc=%TOOLS_PATH%\grpc_csharp_plugin.exe
+%TOOLS_PATH%\protoc.exe -IMedical --csharp_out Medical  Medical/medical.proto --grpc_out Medical --plugin=protoc-gen-grpc=%TOOLS_PATH%\grpc_csharp_plugin.exe
 
 endlocal
