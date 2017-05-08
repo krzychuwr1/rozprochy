@@ -45,14 +45,18 @@ service Greeter {
 }
 
 service Doctor {
-
+ rpc GetResults (QueryParams) returns (stream MedicalResult) {}
 }
 
 service Technician {
-
+ rpc AddNewResult (MedicalResult) returns (Empty) {}
 }
 
 service Patient {
+ rpc GetResults (PatientRequest) returns (stream MedicalResult) {}
+}
+
+message  Empty {
 
 }
 
@@ -67,6 +71,18 @@ message Record {
   string Name = 1;
   double Value = 2;
   string Unit = 3;
+}
+
+message PatientRequest {
+	string name = 1;
+}
+
+message QueryParams {
+	string patientName = 1;
+	string recordName = 2;
+	int64 newerThan = 3;
+	double valueGreaterThan = 4;
+
 }
 
 // The request message containing the user's name.

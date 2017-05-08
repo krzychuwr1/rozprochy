@@ -30,27 +30,71 @@
 using System;
 using Grpc.Core;
 using Medical;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
-namespace GreeterClient
+namespace Medical
 {
-    class Program
+    class Client
+    {
+        private Doctor.DoctorClient _client { get; set; }
+
+        public Client(Doctor.DoctorClient client)
+        {
+            _client = client;
+        }
+
+        public async Task GetFilteredResults(QueryParams filteringParameters)
+        {
+            using (var call = _client.GetResults(filteringParameters))
+            {
+                var responseStream = call.ResponseStream;
+                while (await responseStream.MoveNext())
+                {
+                    MedicalHelpers.WriteResultToConsole(responseStream.Current);
+                }
+            }
+        }
+
+        public async void GetAllResults()
+        {
+            await GetFilteredResults(new QueryParams());
+        }
+    }
+    class DoctorMain
     {
         public static void Main(string[] args)
         {
             Channel channel = new Channel("127.0.0.1:50051", ChannelCredentials.Insecure);
 
-            var client = new Greeter.GreeterClient(channel);
-            String user = "you";
+            var client = new Client(new Doctor.DoctorClient(channel));
+            while (true)
+            {
+                Console.WriteLine("Filter results?");
+                if (Console.ReadLine().Equals("No"))
+                {
+                    client.GetAllResults();
+                }
+                else
+                {
+                    var query = new QueryParams();
+                    Console.WriteLine("By patient name:");
+                    query.PatientName = Console.ReadLine();
 
-            var reply = client.SayHello(new HelloRequest { Name = user });
-            Console.WriteLine("Greeting: " + reply.Message);
+                    Console.WriteLine("By record:");
+                    query.RecordName = Console.ReadLine();
 
-            var secondReply = client.SayHelloAgain(new HelloRequest { Name = user });
-            Console.WriteLine("Greeting: " + secondReply.Message);
+                    Console.WriteLine("Greater then:");
+                    double value;
+                    Double.TryParse(Console.ReadLine(), out value);
+                    query.ValueGreaterThan = value;
 
-            channel.ShutdownAsync().Wait();
+                    client.GetFilteredResults(query);
+                }
+            }
+
             Console.WriteLine("Press any key to exit...");
             Console.ReadKey();
-    }
+        }
     }
 }

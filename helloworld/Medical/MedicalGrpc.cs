@@ -227,6 +227,15 @@ namespace Medical {
   {
     static readonly string __ServiceName = "medical.Doctor";
 
+    static readonly grpc::Marshaller<global::Medical.QueryParams> __Marshaller_QueryParams = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Medical.QueryParams.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Medical.MedicalResult> __Marshaller_MedicalResult = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Medical.MedicalResult.Parser.ParseFrom);
+
+    static readonly grpc::Method<global::Medical.QueryParams, global::Medical.MedicalResult> __Method_GetResults = new grpc::Method<global::Medical.QueryParams, global::Medical.MedicalResult>(
+        grpc::MethodType.ServerStreaming,
+        __ServiceName,
+        "GetResults",
+        __Marshaller_QueryParams,
+        __Marshaller_MedicalResult);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -237,6 +246,11 @@ namespace Medical {
     /// <summary>Base class for server-side implementations of Doctor</summary>
     public abstract partial class DoctorBase
     {
+      public virtual global::System.Threading.Tasks.Task GetResults(global::Medical.QueryParams request, grpc::IServerStreamWriter<global::Medical.MedicalResult> responseStream, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
     }
 
     /// <summary>Client for Doctor</summary>
@@ -262,6 +276,14 @@ namespace Medical {
       {
       }
 
+      public virtual grpc::AsyncServerStreamingCall<global::Medical.MedicalResult> GetResults(global::Medical.QueryParams request, grpc::Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      {
+        return GetResults(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncServerStreamingCall<global::Medical.MedicalResult> GetResults(global::Medical.QueryParams request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncServerStreamingCall(__Method_GetResults, null, options, request);
+      }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       protected override DoctorClient NewInstance(ClientBaseConfiguration configuration)
       {
@@ -273,14 +295,24 @@ namespace Medical {
     /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
     public static grpc::ServerServiceDefinition BindService(DoctorBase serviceImpl)
     {
-      return grpc::ServerServiceDefinition.CreateBuilder().Build();
-        }
+      return grpc::ServerServiceDefinition.CreateBuilder()
+          .AddMethod(__Method_GetResults, serviceImpl.GetResults).Build();
+    }
 
   }
   public static partial class Technician
   {
     static readonly string __ServiceName = "medical.Technician";
 
+    static readonly grpc::Marshaller<global::Medical.MedicalResult> __Marshaller_MedicalResult = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Medical.MedicalResult.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Medical.Empty> __Marshaller_Empty = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Medical.Empty.Parser.ParseFrom);
+
+    static readonly grpc::Method<global::Medical.MedicalResult, global::Medical.Empty> __Method_AddNewResult = new grpc::Method<global::Medical.MedicalResult, global::Medical.Empty>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "AddNewResult",
+        __Marshaller_MedicalResult,
+        __Marshaller_Empty);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -291,6 +323,11 @@ namespace Medical {
     /// <summary>Base class for server-side implementations of Technician</summary>
     public abstract partial class TechnicianBase
     {
+      public virtual global::System.Threading.Tasks.Task<global::Medical.Empty> AddNewResult(global::Medical.MedicalResult request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
     }
 
     /// <summary>Client for Technician</summary>
@@ -316,6 +353,22 @@ namespace Medical {
       {
       }
 
+      public virtual global::Medical.Empty AddNewResult(global::Medical.MedicalResult request, grpc::Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      {
+        return AddNewResult(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual global::Medical.Empty AddNewResult(global::Medical.MedicalResult request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_AddNewResult, null, options, request);
+      }
+      public virtual grpc::AsyncUnaryCall<global::Medical.Empty> AddNewResultAsync(global::Medical.MedicalResult request, grpc::Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      {
+        return AddNewResultAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncUnaryCall<global::Medical.Empty> AddNewResultAsync(global::Medical.MedicalResult request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_AddNewResult, null, options, request);
+      }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       protected override TechnicianClient NewInstance(ClientBaseConfiguration configuration)
       {
@@ -327,14 +380,24 @@ namespace Medical {
     /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
     public static grpc::ServerServiceDefinition BindService(TechnicianBase serviceImpl)
     {
-      return grpc::ServerServiceDefinition.CreateBuilder().Build();
-        }
+      return grpc::ServerServiceDefinition.CreateBuilder()
+          .AddMethod(__Method_AddNewResult, serviceImpl.AddNewResult).Build();
+    }
 
   }
   public static partial class Patient
   {
     static readonly string __ServiceName = "medical.Patient";
 
+    static readonly grpc::Marshaller<global::Medical.PatientRequest> __Marshaller_PatientRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Medical.PatientRequest.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Medical.MedicalResult> __Marshaller_MedicalResult = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Medical.MedicalResult.Parser.ParseFrom);
+
+    static readonly grpc::Method<global::Medical.PatientRequest, global::Medical.MedicalResult> __Method_GetResults = new grpc::Method<global::Medical.PatientRequest, global::Medical.MedicalResult>(
+        grpc::MethodType.ServerStreaming,
+        __ServiceName,
+        "GetResults",
+        __Marshaller_PatientRequest,
+        __Marshaller_MedicalResult);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -345,6 +408,11 @@ namespace Medical {
     /// <summary>Base class for server-side implementations of Patient</summary>
     public abstract partial class PatientBase
     {
+      public virtual global::System.Threading.Tasks.Task GetResults(global::Medical.PatientRequest request, grpc::IServerStreamWriter<global::Medical.MedicalResult> responseStream, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
     }
 
     /// <summary>Client for Patient</summary>
@@ -370,6 +438,14 @@ namespace Medical {
       {
       }
 
+      public virtual grpc::AsyncServerStreamingCall<global::Medical.MedicalResult> GetResults(global::Medical.PatientRequest request, grpc::Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      {
+        return GetResults(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncServerStreamingCall<global::Medical.MedicalResult> GetResults(global::Medical.PatientRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncServerStreamingCall(__Method_GetResults, null, options, request);
+      }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       protected override PatientClient NewInstance(ClientBaseConfiguration configuration)
       {
@@ -381,8 +457,9 @@ namespace Medical {
     /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
     public static grpc::ServerServiceDefinition BindService(PatientBase serviceImpl)
     {
-      return grpc::ServerServiceDefinition.CreateBuilder().Build();
-        }
+      return grpc::ServerServiceDefinition.CreateBuilder()
+          .AddMethod(__Method_GetResults, serviceImpl.GetResults).Build();
+    }
 
   }
 }

@@ -31,25 +31,63 @@ using System;
 using System.Threading.Tasks;
 using Grpc.Core;
 using Medical;
+using System.Linq;
+using System.Collections.Generic;
 
-namespace GreeterServer
+namespace MedicalServer
 {
-    class GreeterImpl : Greeter.GreeterBase
+    class TechnicianImplementation : Technician.TechnicianBase
     {
-        // Server side handler of the SayHello RPC
-        public override Task<HelloReply> SayHello(HelloRequest request, ServerCallContext context)
+        public override Task<Empty> AddNewResult(MedicalResult request, ServerCallContext context)
         {
-            return Task.FromResult(new HelloReply { Message = "Hello " + request.Name });
+            DataBase.Results.Add(request);
+            return Task.FromResult(new Empty());
         }
+    }
 
-        // Server side handler for the SayHelloAgain RPC
-        public override Task<HelloReply> SayHelloAgain(HelloRequest request, ServerCallContext context)
+    class PatientImplementation : Patient.PatientBase
+    {
+        public override async Task GetResults(PatientRequest request, IServerStreamWriter<MedicalResult> responseStream, ServerCallContext context)
         {
-          return Task.FromResult(new HelloReply { Message = "Hello again " + request.Name });
+            IEnumerable<MedicalResult> resultsToReturn = DataBase.Results.Where(x => x.PatientName.Equals(request.Name));
+            foreach (var result in resultsToReturn)
+            {
+                await responseStream.WriteAsync(result);
+                await Task.Delay(2000);
+            }
         }
-  }
+    }
 
-    class Program
+    class DoctorImplementation : Doctor.DoctorBase
+    {
+        public override async Task GetResults(QueryParams request, IServerStreamWriter<MedicalResult> responseStream, ServerCallContext context)
+        {
+            IEnumerable<MedicalResult> resultsToReturn = DataBase.Results;
+            if (!string.IsNullOrWhiteSpace(request.PatientName))
+            {
+                resultsToReturn = resultsToReturn.Where(x => x.PatientName.Contains(request.PatientName));
+            }
+            if (request.NewerThan != 0)
+            {
+                resultsToReturn = resultsToReturn.Where(x => x.Date > request.NewerThan);
+            }
+            if (!string.IsNullOrWhiteSpace(request.RecordName))
+            {
+                resultsToReturn = resultsToReturn
+                    .Where(x => x.Records.Select(y => y.Name).Contains(request.RecordName))
+                    .Where(x => x.Records.Where(y => y.Name.Equals(request.RecordName))
+                    .Any(y => y.Value > request.ValueGreaterThan));
+            }
+
+            foreach (var result in resultsToReturn)
+            {
+                await responseStream.WriteAsync(result);
+                await Task.Delay(2000);
+            }
+        }
+    }
+
+    class ServerMain
     {
         const int Port = 50051;
 
@@ -57,12 +95,17 @@ namespace GreeterServer
         {
             Server server = new Server
             {
-                Services = { Greeter.BindService(new GreeterImpl()) },
+                Services =
+                {
+                  Doctor.BindService(new DoctorImplementation()),
+                  Technician.BindService(new TechnicianImplementation()),
+                  Patient.BindService(new PatientImplementation())
+                },
                 Ports = { new ServerPort("localhost", Port, ServerCredentials.Insecure) }
             };
             server.Start();
 
-            Console.WriteLine("Greeter server listening on port " + Port);
+            Console.WriteLine($"Medical server listening on port {Port} ");
             Console.WriteLine("Press any key to stop the server...");
             Console.ReadKey();
 

@@ -22,22 +22,32 @@ namespace Medical {
     static MedicalReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "Cg1tZWRpY2FsLnByb3RvEgdtZWRpY2FsImgKDU1lZGljYWxSZXN1bHQSEwoL",
-            "UGF0aWVudE5hbWUYASABKAkSEgoKRG9jdG9yTmFtZRgCIAEoCRIMCgREYXRl",
-            "GAMgASgDEiAKB1JlY29yZHMYBCADKAsyDy5tZWRpY2FsLlJlY29yZCIzCgZS",
-            "ZWNvcmQSDAoETmFtZRgBIAEoCRINCgVWYWx1ZRgCIAEoARIMCgRVbml0GAMg",
-            "ASgJIhwKDEhlbGxvUmVxdWVzdBIMCgRuYW1lGAEgASgJIh0KCkhlbGxvUmVw",
-            "bHkSDwoHbWVzc2FnZRgBIAEoCTKCAQoHR3JlZXRlchI4CghTYXlIZWxsbxIV",
-            "Lm1lZGljYWwuSGVsbG9SZXF1ZXN0GhMubWVkaWNhbC5IZWxsb1JlcGx5IgAS",
-            "PQoNU2F5SGVsbG9BZ2FpbhIVLm1lZGljYWwuSGVsbG9SZXF1ZXN0GhMubWVk",
-            "aWNhbC5IZWxsb1JlcGx5IgAyCAoGRG9jdG9yMgwKClRlY2huaWNpYW4yCQoH",
-            "UGF0aWVudEIwChhpby5ncnBjLmV4YW1wbGVzLm1lZGljYWxCDG1lZGljYWxQ",
-            "cm90b1ABogIDSExXYgZwcm90bzM="));
+            "Cg1tZWRpY2FsLnByb3RvEgdtZWRpY2FsIgcKBUVtcHR5ImgKDU1lZGljYWxS",
+            "ZXN1bHQSEwoLUGF0aWVudE5hbWUYASABKAkSEgoKRG9jdG9yTmFtZRgCIAEo",
+            "CRIMCgREYXRlGAMgASgDEiAKB1JlY29yZHMYBCADKAsyDy5tZWRpY2FsLlJl",
+            "Y29yZCIzCgZSZWNvcmQSDAoETmFtZRgBIAEoCRINCgVWYWx1ZRgCIAEoARIM",
+            "CgRVbml0GAMgASgJIh4KDlBhdGllbnRSZXF1ZXN0EgwKBG5hbWUYASABKAki",
+            "YwoLUXVlcnlQYXJhbXMSEwoLcGF0aWVudE5hbWUYASABKAkSEgoKcmVjb3Jk",
+            "TmFtZRgCIAEoCRIRCgluZXdlclRoYW4YAyABKAMSGAoQdmFsdWVHcmVhdGVy",
+            "VGhhbhgEIAEoASIcCgxIZWxsb1JlcXVlc3QSDAoEbmFtZRgBIAEoCSIdCgpI",
+            "ZWxsb1JlcGx5Eg8KB21lc3NhZ2UYASABKAkyggEKB0dyZWV0ZXISOAoIU2F5",
+            "SGVsbG8SFS5tZWRpY2FsLkhlbGxvUmVxdWVzdBoTLm1lZGljYWwuSGVsbG9S",
+            "ZXBseSIAEj0KDVNheUhlbGxvQWdhaW4SFS5tZWRpY2FsLkhlbGxvUmVxdWVz",
+            "dBoTLm1lZGljYWwuSGVsbG9SZXBseSIAMkgKBkRvY3RvchI+CgpHZXRSZXN1",
+            "bHRzEhQubWVkaWNhbC5RdWVyeVBhcmFtcxoWLm1lZGljYWwuTWVkaWNhbFJl",
+            "c3VsdCIAMAEyRgoKVGVjaG5pY2lhbhI4CgxBZGROZXdSZXN1bHQSFi5tZWRp",
+            "Y2FsLk1lZGljYWxSZXN1bHQaDi5tZWRpY2FsLkVtcHR5IgAyTAoHUGF0aWVu",
+            "dBJBCgpHZXRSZXN1bHRzEhcubWVkaWNhbC5QYXRpZW50UmVxdWVzdBoWLm1l",
+            "ZGljYWwuTWVkaWNhbFJlc3VsdCIAMAFCMAoYaW8uZ3JwYy5leGFtcGxlcy5t",
+            "ZWRpY2FsQgxtZWRpY2FsUHJvdG9QAaICA0hMV2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
+            new pbr::GeneratedClrTypeInfo(typeof(global::Medical.Empty), global::Medical.Empty.Parser, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Medical.MedicalResult), global::Medical.MedicalResult.Parser, new[]{ "PatientName", "DoctorName", "Date", "Records" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Medical.Record), global::Medical.Record.Parser, new[]{ "Name", "Value", "Unit" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Medical.PatientRequest), global::Medical.PatientRequest.Parser, new[]{ "Name" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Medical.QueryParams), global::Medical.QueryParams.Parser, new[]{ "PatientName", "RecordName", "NewerThan", "ValueGreaterThan" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Medical.HelloRequest), global::Medical.HelloRequest.Parser, new[]{ "Name" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Medical.HelloReply), global::Medical.HelloReply.Parser, new[]{ "Message" }, null, null, null)
           }));
@@ -46,6 +56,95 @@ namespace Medical {
 
   }
   #region Messages
+  public sealed partial class Empty : pb::IMessage<Empty> {
+    private static readonly pb::MessageParser<Empty> _parser = new pb::MessageParser<Empty>(() => new Empty());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<Empty> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Medical.MedicalReflection.Descriptor.MessageTypes[0]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Empty() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Empty(Empty other) : this() {
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Empty Clone() {
+      return new Empty(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as Empty);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(Empty other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      return true;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(Empty other) {
+      if (other == null) {
+        return;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+        }
+      }
+    }
+
+  }
+
   public sealed partial class MedicalResult : pb::IMessage<MedicalResult> {
     private static readonly pb::MessageParser<MedicalResult> _parser = new pb::MessageParser<MedicalResult>(() => new MedicalResult());
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -53,7 +152,7 @@ namespace Medical {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Medical.MedicalReflection.Descriptor.MessageTypes[0]; }
+      get { return global::Medical.MedicalReflection.Descriptor.MessageTypes[1]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -246,7 +345,7 @@ namespace Medical {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Medical.MedicalReflection.Descriptor.MessageTypes[1]; }
+      get { return global::Medical.MedicalReflection.Descriptor.MessageTypes[2]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -412,6 +511,324 @@ namespace Medical {
 
   }
 
+  public sealed partial class PatientRequest : pb::IMessage<PatientRequest> {
+    private static readonly pb::MessageParser<PatientRequest> _parser = new pb::MessageParser<PatientRequest>(() => new PatientRequest());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<PatientRequest> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Medical.MedicalReflection.Descriptor.MessageTypes[3]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public PatientRequest() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public PatientRequest(PatientRequest other) : this() {
+      name_ = other.name_;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public PatientRequest Clone() {
+      return new PatientRequest(this);
+    }
+
+    /// <summary>Field number for the "name" field.</summary>
+    public const int NameFieldNumber = 1;
+    private string name_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Name {
+      get { return name_; }
+      set {
+        name_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as PatientRequest);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(PatientRequest other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Name != other.Name) return false;
+      return true;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Name.Length != 0) hash ^= Name.GetHashCode();
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Name.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Name);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Name.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(PatientRequest other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Name.Length != 0) {
+        Name = other.Name;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 10: {
+            Name = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class QueryParams : pb::IMessage<QueryParams> {
+    private static readonly pb::MessageParser<QueryParams> _parser = new pb::MessageParser<QueryParams>(() => new QueryParams());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<QueryParams> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Medical.MedicalReflection.Descriptor.MessageTypes[4]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public QueryParams() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public QueryParams(QueryParams other) : this() {
+      patientName_ = other.patientName_;
+      recordName_ = other.recordName_;
+      newerThan_ = other.newerThan_;
+      valueGreaterThan_ = other.valueGreaterThan_;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public QueryParams Clone() {
+      return new QueryParams(this);
+    }
+
+    /// <summary>Field number for the "patientName" field.</summary>
+    public const int PatientNameFieldNumber = 1;
+    private string patientName_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string PatientName {
+      get { return patientName_; }
+      set {
+        patientName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "recordName" field.</summary>
+    public const int RecordNameFieldNumber = 2;
+    private string recordName_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string RecordName {
+      get { return recordName_; }
+      set {
+        recordName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "newerThan" field.</summary>
+    public const int NewerThanFieldNumber = 3;
+    private long newerThan_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long NewerThan {
+      get { return newerThan_; }
+      set {
+        newerThan_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "valueGreaterThan" field.</summary>
+    public const int ValueGreaterThanFieldNumber = 4;
+    private double valueGreaterThan_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public double ValueGreaterThan {
+      get { return valueGreaterThan_; }
+      set {
+        valueGreaterThan_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as QueryParams);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(QueryParams other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (PatientName != other.PatientName) return false;
+      if (RecordName != other.RecordName) return false;
+      if (NewerThan != other.NewerThan) return false;
+      if (ValueGreaterThan != other.ValueGreaterThan) return false;
+      return true;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (PatientName.Length != 0) hash ^= PatientName.GetHashCode();
+      if (RecordName.Length != 0) hash ^= RecordName.GetHashCode();
+      if (NewerThan != 0L) hash ^= NewerThan.GetHashCode();
+      if (ValueGreaterThan != 0D) hash ^= ValueGreaterThan.GetHashCode();
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (PatientName.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(PatientName);
+      }
+      if (RecordName.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(RecordName);
+      }
+      if (NewerThan != 0L) {
+        output.WriteRawTag(24);
+        output.WriteInt64(NewerThan);
+      }
+      if (ValueGreaterThan != 0D) {
+        output.WriteRawTag(33);
+        output.WriteDouble(ValueGreaterThan);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (PatientName.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(PatientName);
+      }
+      if (RecordName.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(RecordName);
+      }
+      if (NewerThan != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(NewerThan);
+      }
+      if (ValueGreaterThan != 0D) {
+        size += 1 + 8;
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(QueryParams other) {
+      if (other == null) {
+        return;
+      }
+      if (other.PatientName.Length != 0) {
+        PatientName = other.PatientName;
+      }
+      if (other.RecordName.Length != 0) {
+        RecordName = other.RecordName;
+      }
+      if (other.NewerThan != 0L) {
+        NewerThan = other.NewerThan;
+      }
+      if (other.ValueGreaterThan != 0D) {
+        ValueGreaterThan = other.ValueGreaterThan;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 10: {
+            PatientName = input.ReadString();
+            break;
+          }
+          case 18: {
+            RecordName = input.ReadString();
+            break;
+          }
+          case 24: {
+            NewerThan = input.ReadInt64();
+            break;
+          }
+          case 33: {
+            ValueGreaterThan = input.ReadDouble();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
   /// <summary>
   /// The request message containing the user's name.
   /// </summary>
@@ -422,7 +839,7 @@ namespace Medical {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Medical.MedicalReflection.Descriptor.MessageTypes[2]; }
+      get { return global::Medical.MedicalReflection.Descriptor.MessageTypes[5]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -542,7 +959,7 @@ namespace Medical {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Medical.MedicalReflection.Descriptor.MessageTypes[3]; }
+      get { return global::Medical.MedicalReflection.Descriptor.MessageTypes[6]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
