@@ -22,16 +22,22 @@ namespace Medical {
     static MedicalReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "Cg1tZWRpY2FsLnByb3RvEgdtZWRpY2FsIhwKDEhlbGxvUmVxdWVzdBIMCgRu",
-            "YW1lGAEgASgJIh0KCkhlbGxvUmVwbHkSDwoHbWVzc2FnZRgBIAEoCTKCAQoH",
-            "R3JlZXRlchI4CghTYXlIZWxsbxIVLm1lZGljYWwuSGVsbG9SZXF1ZXN0GhMu",
-            "bWVkaWNhbC5IZWxsb1JlcGx5IgASPQoNU2F5SGVsbG9BZ2FpbhIVLm1lZGlj",
-            "YWwuSGVsbG9SZXF1ZXN0GhMubWVkaWNhbC5IZWxsb1JlcGx5IgAyCAoGRG9j",
-            "dG9yMgwKClRlY2huaWNpYW4yCQoHUGF0aWVudEIwChhpby5ncnBjLmV4YW1w",
-            "bGVzLm1lZGljYWxCDG1lZGljYWxQcm90b1ABogIDSExXYgZwcm90bzM="));
+            "Cg1tZWRpY2FsLnByb3RvEgdtZWRpY2FsImgKDU1lZGljYWxSZXN1bHQSEwoL",
+            "UGF0aWVudE5hbWUYASABKAkSEgoKRG9jdG9yTmFtZRgCIAEoCRIMCgREYXRl",
+            "GAMgASgDEiAKB1JlY29yZHMYBCADKAsyDy5tZWRpY2FsLlJlY29yZCIzCgZS",
+            "ZWNvcmQSDAoETmFtZRgBIAEoCRINCgVWYWx1ZRgCIAEoARIMCgRVbml0GAMg",
+            "ASgJIhwKDEhlbGxvUmVxdWVzdBIMCgRuYW1lGAEgASgJIh0KCkhlbGxvUmVw",
+            "bHkSDwoHbWVzc2FnZRgBIAEoCTKCAQoHR3JlZXRlchI4CghTYXlIZWxsbxIV",
+            "Lm1lZGljYWwuSGVsbG9SZXF1ZXN0GhMubWVkaWNhbC5IZWxsb1JlcGx5IgAS",
+            "PQoNU2F5SGVsbG9BZ2FpbhIVLm1lZGljYWwuSGVsbG9SZXF1ZXN0GhMubWVk",
+            "aWNhbC5IZWxsb1JlcGx5IgAyCAoGRG9jdG9yMgwKClRlY2huaWNpYW4yCQoH",
+            "UGF0aWVudEIwChhpby5ncnBjLmV4YW1wbGVzLm1lZGljYWxCDG1lZGljYWxQ",
+            "cm90b1ABogIDSExXYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
+            new pbr::GeneratedClrTypeInfo(typeof(global::Medical.MedicalResult), global::Medical.MedicalResult.Parser, new[]{ "PatientName", "DoctorName", "Date", "Records" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Medical.Record), global::Medical.Record.Parser, new[]{ "Name", "Value", "Unit" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Medical.HelloRequest), global::Medical.HelloRequest.Parser, new[]{ "Name" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Medical.HelloReply), global::Medical.HelloReply.Parser, new[]{ "Message" }, null, null, null)
           }));
@@ -40,6 +46,372 @@ namespace Medical {
 
   }
   #region Messages
+  public sealed partial class MedicalResult : pb::IMessage<MedicalResult> {
+    private static readonly pb::MessageParser<MedicalResult> _parser = new pb::MessageParser<MedicalResult>(() => new MedicalResult());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<MedicalResult> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Medical.MedicalReflection.Descriptor.MessageTypes[0]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public MedicalResult() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public MedicalResult(MedicalResult other) : this() {
+      patientName_ = other.patientName_;
+      doctorName_ = other.doctorName_;
+      date_ = other.date_;
+      records_ = other.records_.Clone();
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public MedicalResult Clone() {
+      return new MedicalResult(this);
+    }
+
+    /// <summary>Field number for the "PatientName" field.</summary>
+    public const int PatientNameFieldNumber = 1;
+    private string patientName_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string PatientName {
+      get { return patientName_; }
+      set {
+        patientName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "DoctorName" field.</summary>
+    public const int DoctorNameFieldNumber = 2;
+    private string doctorName_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string DoctorName {
+      get { return doctorName_; }
+      set {
+        doctorName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "Date" field.</summary>
+    public const int DateFieldNumber = 3;
+    private long date_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long Date {
+      get { return date_; }
+      set {
+        date_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Records" field.</summary>
+    public const int RecordsFieldNumber = 4;
+    private static readonly pb::FieldCodec<global::Medical.Record> _repeated_records_codec
+        = pb::FieldCodec.ForMessage(34, global::Medical.Record.Parser);
+    private readonly pbc::RepeatedField<global::Medical.Record> records_ = new pbc::RepeatedField<global::Medical.Record>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<global::Medical.Record> Records {
+      get { return records_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as MedicalResult);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(MedicalResult other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (PatientName != other.PatientName) return false;
+      if (DoctorName != other.DoctorName) return false;
+      if (Date != other.Date) return false;
+      if(!records_.Equals(other.records_)) return false;
+      return true;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (PatientName.Length != 0) hash ^= PatientName.GetHashCode();
+      if (DoctorName.Length != 0) hash ^= DoctorName.GetHashCode();
+      if (Date != 0L) hash ^= Date.GetHashCode();
+      hash ^= records_.GetHashCode();
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (PatientName.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(PatientName);
+      }
+      if (DoctorName.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(DoctorName);
+      }
+      if (Date != 0L) {
+        output.WriteRawTag(24);
+        output.WriteInt64(Date);
+      }
+      records_.WriteTo(output, _repeated_records_codec);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (PatientName.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(PatientName);
+      }
+      if (DoctorName.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(DoctorName);
+      }
+      if (Date != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(Date);
+      }
+      size += records_.CalculateSize(_repeated_records_codec);
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(MedicalResult other) {
+      if (other == null) {
+        return;
+      }
+      if (other.PatientName.Length != 0) {
+        PatientName = other.PatientName;
+      }
+      if (other.DoctorName.Length != 0) {
+        DoctorName = other.DoctorName;
+      }
+      if (other.Date != 0L) {
+        Date = other.Date;
+      }
+      records_.Add(other.records_);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 10: {
+            PatientName = input.ReadString();
+            break;
+          }
+          case 18: {
+            DoctorName = input.ReadString();
+            break;
+          }
+          case 24: {
+            Date = input.ReadInt64();
+            break;
+          }
+          case 34: {
+            records_.AddEntriesFrom(input, _repeated_records_codec);
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class Record : pb::IMessage<Record> {
+    private static readonly pb::MessageParser<Record> _parser = new pb::MessageParser<Record>(() => new Record());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<Record> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Medical.MedicalReflection.Descriptor.MessageTypes[1]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Record() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Record(Record other) : this() {
+      name_ = other.name_;
+      value_ = other.value_;
+      unit_ = other.unit_;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Record Clone() {
+      return new Record(this);
+    }
+
+    /// <summary>Field number for the "Name" field.</summary>
+    public const int NameFieldNumber = 1;
+    private string name_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Name {
+      get { return name_; }
+      set {
+        name_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "Value" field.</summary>
+    public const int ValueFieldNumber = 2;
+    private double value_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public double Value {
+      get { return value_; }
+      set {
+        value_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Unit" field.</summary>
+    public const int UnitFieldNumber = 3;
+    private string unit_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Unit {
+      get { return unit_; }
+      set {
+        unit_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as Record);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(Record other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Name != other.Name) return false;
+      if (Value != other.Value) return false;
+      if (Unit != other.Unit) return false;
+      return true;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Name.Length != 0) hash ^= Name.GetHashCode();
+      if (Value != 0D) hash ^= Value.GetHashCode();
+      if (Unit.Length != 0) hash ^= Unit.GetHashCode();
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Name.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Name);
+      }
+      if (Value != 0D) {
+        output.WriteRawTag(17);
+        output.WriteDouble(Value);
+      }
+      if (Unit.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(Unit);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Name.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
+      }
+      if (Value != 0D) {
+        size += 1 + 8;
+      }
+      if (Unit.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Unit);
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(Record other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Name.Length != 0) {
+        Name = other.Name;
+      }
+      if (other.Value != 0D) {
+        Value = other.Value;
+      }
+      if (other.Unit.Length != 0) {
+        Unit = other.Unit;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 10: {
+            Name = input.ReadString();
+            break;
+          }
+          case 17: {
+            Value = input.ReadDouble();
+            break;
+          }
+          case 26: {
+            Unit = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
   /// <summary>
   /// The request message containing the user's name.
   /// </summary>
@@ -50,7 +422,7 @@ namespace Medical {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Medical.MedicalReflection.Descriptor.MessageTypes[0]; }
+      get { return global::Medical.MedicalReflection.Descriptor.MessageTypes[2]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -170,7 +542,7 @@ namespace Medical {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Medical.MedicalReflection.Descriptor.MessageTypes[1]; }
+      get { return global::Medical.MedicalReflection.Descriptor.MessageTypes[3]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

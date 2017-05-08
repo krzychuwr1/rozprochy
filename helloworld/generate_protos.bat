@@ -34,7 +34,7 @@ setlocal
 @rem enter this directory
 cd /d %~dp0
 
-set TOOLS_PATH=packages\Grpc.Tools.1.2.2\tools\windows_x86
+set TOOLS_PATH=packages\Grpc.Tools.1.3.0\tools\windows_x86
 
 %TOOLS_PATH%\protoc.exe -IMedical --csharp_out Medical  Medical/medical.proto --grpc_out Medical --plugin=protoc-gen-grpc=%TOOLS_PATH%\grpc_csharp_plugin.exe
 

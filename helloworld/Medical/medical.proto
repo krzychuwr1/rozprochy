@@ -44,6 +44,31 @@ service Greeter {
   rpc SayHelloAgain (HelloRequest) returns (HelloReply) {}
 }
 
+service Doctor {
+
+}
+
+service Technician {
+
+}
+
+service Patient {
+
+}
+
+message MedicalResult {
+  string PatientName = 1;
+  string DoctorName = 2;
+  int64 Date = 3;
+  repeated Record Records = 4;
+}
+
+message Record {
+  string Name = 1;
+  double Value = 2;
+  string Unit = 3;
+}
+
 // The request message containing the user's name.
 message HelloRequest {
   string name = 1;

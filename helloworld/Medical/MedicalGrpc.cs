@@ -223,5 +223,167 @@ namespace Medical {
     }
 
   }
+  public static partial class Doctor
+  {
+    static readonly string __ServiceName = "medical.Doctor";
+
+
+    /// <summary>Service descriptor</summary>
+    public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
+    {
+      get { return global::Medical.MedicalReflection.Descriptor.Services[1]; }
+    }
+
+    /// <summary>Base class for server-side implementations of Doctor</summary>
+    public abstract partial class DoctorBase
+    {
+    }
+
+    /// <summary>Client for Doctor</summary>
+    public partial class DoctorClient : grpc::ClientBase<DoctorClient>
+    {
+      /// <summary>Creates a new client for Doctor</summary>
+      /// <param name="channel">The channel to use to make remote calls.</param>
+      public DoctorClient(grpc::Channel channel) : base(channel)
+      {
+      }
+      /// <summary>Creates a new client for Doctor that uses a custom <c>CallInvoker</c>.</summary>
+      /// <param name="callInvoker">The callInvoker to use to make remote calls.</param>
+      public DoctorClient(grpc::CallInvoker callInvoker) : base(callInvoker)
+      {
+      }
+      /// <summary>Protected parameterless constructor to allow creation of test doubles.</summary>
+      protected DoctorClient() : base()
+      {
+      }
+      /// <summary>Protected constructor to allow creation of configured clients.</summary>
+      /// <param name="configuration">The client configuration.</param>
+      protected DoctorClient(ClientBaseConfiguration configuration) : base(configuration)
+      {
+      }
+
+      /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
+      protected override DoctorClient NewInstance(ClientBaseConfiguration configuration)
+      {
+        return new DoctorClient(configuration);
+      }
+    }
+
+    /// <summary>Creates service definition that can be registered with a server</summary>
+    /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
+    public static grpc::ServerServiceDefinition BindService(DoctorBase serviceImpl)
+    {
+      return grpc::ServerServiceDefinition.CreateBuilder().Build();
+        }
+
+  }
+  public static partial class Technician
+  {
+    static readonly string __ServiceName = "medical.Technician";
+
+
+    /// <summary>Service descriptor</summary>
+    public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
+    {
+      get { return global::Medical.MedicalReflection.Descriptor.Services[2]; }
+    }
+
+    /// <summary>Base class for server-side implementations of Technician</summary>
+    public abstract partial class TechnicianBase
+    {
+    }
+
+    /// <summary>Client for Technician</summary>
+    public partial class TechnicianClient : grpc::ClientBase<TechnicianClient>
+    {
+      /// <summary>Creates a new client for Technician</summary>
+      /// <param name="channel">The channel to use to make remote calls.</param>
+      public TechnicianClient(grpc::Channel channel) : base(channel)
+      {
+      }
+      /// <summary>Creates a new client for Technician that uses a custom <c>CallInvoker</c>.</summary>
+      /// <param name="callInvoker">The callInvoker to use to make remote calls.</param>
+      public TechnicianClient(grpc::CallInvoker callInvoker) : base(callInvoker)
+      {
+      }
+      /// <summary>Protected parameterless constructor to allow creation of test doubles.</summary>
+      protected TechnicianClient() : base()
+      {
+      }
+      /// <summary>Protected constructor to allow creation of configured clients.</summary>
+      /// <param name="configuration">The client configuration.</param>
+      protected TechnicianClient(ClientBaseConfiguration configuration) : base(configuration)
+      {
+      }
+
+      /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
+      protected override TechnicianClient NewInstance(ClientBaseConfiguration configuration)
+      {
+        return new TechnicianClient(configuration);
+      }
+    }
+
+    /// <summary>Creates service definition that can be registered with a server</summary>
+    /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
+    public static grpc::ServerServiceDefinition BindService(TechnicianBase serviceImpl)
+    {
+      return grpc::ServerServiceDefinition.CreateBuilder().Build();
+        }
+
+  }
+  public static partial class Patient
+  {
+    static readonly string __ServiceName = "medical.Patient";
+
+
+    /// <summary>Service descriptor</summary>
+    public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
+    {
+      get { return global::Medical.MedicalReflection.Descriptor.Services[3]; }
+    }
+
+    /// <summary>Base class for server-side implementations of Patient</summary>
+    public abstract partial class PatientBase
+    {
+    }
+
+    /// <summary>Client for Patient</summary>
+    public partial class PatientClient : grpc::ClientBase<PatientClient>
+    {
+      /// <summary>Creates a new client for Patient</summary>
+      /// <param name="channel">The channel to use to make remote calls.</param>
+      public PatientClient(grpc::Channel channel) : base(channel)
+      {
+      }
+      /// <summary>Creates a new client for Patient that uses a custom <c>CallInvoker</c>.</summary>
+      /// <param name="callInvoker">The callInvoker to use to make remote calls.</param>
+      public PatientClient(grpc::CallInvoker callInvoker) : base(callInvoker)
+      {
+      }
+      /// <summary>Protected parameterless constructor to allow creation of test doubles.</summary>
+      protected PatientClient() : base()
+      {
+      }
+      /// <summary>Protected constructor to allow creation of configured clients.</summary>
+      /// <param name="configuration">The client configuration.</param>
+      protected PatientClient(ClientBaseConfiguration configuration) : base(configuration)
+      {
+      }
+
+      /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
+      protected override PatientClient NewInstance(ClientBaseConfiguration configuration)
+      {
+        return new PatientClient(configuration);
+      }
+    }
+
+    /// <summary>Creates service definition that can be registered with a server</summary>
+    /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
+    public static grpc::ServerServiceDefinition BindService(PatientBase serviceImpl)
+    {
+      return grpc::ServerServiceDefinition.CreateBuilder().Build();
+        }
+
+  }
 }
 #endregion
