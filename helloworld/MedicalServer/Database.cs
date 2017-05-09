@@ -9,29 +9,29 @@ namespace MedicalServer
 {
     public static class DataBase
     {
-        public static List<MedicalResult> Results { get; set; } = GenerateRandomResults().Take(1000).ToList();
-
-        private static Dictionary<string, string> dataTypes = new Dictionary<string, string>()
-        {
-            {"Weight", "kg"},
-            {"Glucose", "mmol/L" },
-            {"Calcium", "mmol/L" },
-            {"Albumin", "g/L" }
-        };
+        public static List<MedicalResult> Results { get; set; } = GenerateRandomResults().Take(100).ToList();
 
         private static IEnumerable<Record> GenerateRecords()
         {
+            List<(string property, string unit)> dataTypes = new List<(string, string)>()
+            {
+                ("Weight", "kg"),
+                ("Glucose", "mmol/L" ),
+                ("Calcium", "mmol/L" ),
+                ("Albumin", "g/L" )
+            };
+
             var rand = new Random();
 
             while (true)
             {
-                var name = new byte[16];
-                rand.NextBytes(name);
+                var type = dataTypes[rand.Next(0, dataTypes.Count)];
+
                 yield return new Record
                 {
-                    Name = Encoding.UTF32.GetString(name),
+                    Name = type.property,
                     Value = rand.NextDouble(),
-                    Unit = "mg"
+                    Unit = type.unit
                 };
             }
         }
@@ -39,8 +39,8 @@ namespace MedicalServer
         private static IEnumerable<MedicalResult> GenerateRandomResults()
         {
             var rand = new Random();
-            var doctors = new List<string> { "Doctor 1", "Doctor 2", "Doctor 3" };
-            var patients = new List<string> { "Patient 1", "Patient 2", "Patient 3" };
+            var doctors = new List<string> { "D1", "D2", "D3", "D4" };
+            var patients = new List<string> { "P1", "P2", "P3", "P4" };
             while (true)
             {
 
