@@ -12,10 +12,23 @@ namespace MedicalServer
         private static List<(string property, string unit)> dataTypes = new List<(string, string)>()
             {
                 ("Weight", "kg"),
+                ("Height", "cm"),
                 ("Glucose", "mmol/L" ),
                 ("Calcium", "mmol/L" ),
-                ("Albumin", "g/L" )
+                ("Albumin", "g/L" ),
+                ("Cholesterol", "mg/dL"),
+                ("Urea", "mmol/L"),
+                ("Sodium", "mmol/L"),
+                ("Chloride", "mmol/L"),
+                ("Potassium", "mmol/L"),
+                ("Globulin", "g/L" )
             };
+
+        private static List<string> doctors = new List<string> { "D1", "D2", "D3", "D4" };
+
+        private static List<string> patients = new List<string> { "P1", "P2", "P3", "P4" };
+
+        private static Random rand = new Random();
 
         public static List<MedicalResult> Results { get; set; } = GenerateRandomResults().Take(100).ToList();
 
@@ -38,9 +51,6 @@ namespace MedicalServer
 
         private static IEnumerable<MedicalResult> GenerateRandomResults()
         {
-            var rand = new Random();
-            var doctors = new List<string> { "D1", "D2", "D3", "D4" };
-            var patients = new List<string> { "P1", "P2", "P3", "P4" };
             while (true)
             {
 
@@ -51,7 +61,7 @@ namespace MedicalServer
                     PatientName = patients[rand.Next(0, patients.Count - 1)],
                 };
 
-                t.Records.AddRange(GenerateRecords().Take(rand.Next(16)));
+                t.Records.AddRange(GenerateRecords().Take(rand.Next(1, 6)));
 
                 yield return t;
 
