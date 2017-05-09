@@ -60,6 +60,7 @@ namespace Medical
 
                 }
                 client.SaveNewResult(resultToAdd);
+                Console.WriteLine("Result has been sent to the server !");
             }
         }
     }

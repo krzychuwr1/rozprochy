@@ -78,13 +78,16 @@ namespace Doctor
                 else
                 {
                     var query = new FilterRequest();
-                    Console.WriteLine("By patient name:");
+                    Console.WriteLine("Filter by patient:");
                     query.PatientName = Console.ReadLine();
 
-                    Console.WriteLine("By record:");
+                    //Console.WriteLine("Filter by doctor:");
+                    //todo
+
+                    Console.WriteLine("Filter by record type:");
                     query.RecordName = Console.ReadLine();
 
-                    Console.WriteLine("Minimum value:");
+                    Console.WriteLine("Filter by record minimum value:");
                     Double.TryParse(Console.ReadLine(), out double value);
                     query.MinimalValue = value;
 

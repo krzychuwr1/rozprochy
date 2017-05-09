@@ -40,7 +40,7 @@ namespace MedicalServer
     {
         public override Task<Empty> AddNewResult(MedicalResult request, ServerCallContext context)
         {
-            DataBase.Results.Add(request);
+            DataGenerator.Results.Add(request);
             return Task.FromResult(new Empty());
         }
     }
@@ -49,7 +49,7 @@ namespace MedicalServer
     {
         public override async Task GetResults(PatientRequest request, IServerStreamWriter<MedicalResult> responseStream, ServerCallContext context)
         {
-            IEnumerable<MedicalResult> resultsToReturn = DataBase.Results.Where(x => x.PatientName.Equals(request.Name));
+            IEnumerable<MedicalResult> resultsToReturn = DataGenerator.Results.Where(x => x.PatientName.Equals(request.Name));
             foreach (var result in resultsToReturn)
             {
                 await responseStream.WriteAsync(result);
@@ -62,7 +62,7 @@ namespace MedicalServer
     {
         public override async Task GetResults(FilterRequest request, IServerStreamWriter<MedicalResult> responseStream, ServerCallContext context)
         {
-            IEnumerable<MedicalResult> resultsToReturn = DataBase.Results;
+            IEnumerable<MedicalResult> resultsToReturn = DataGenerator.Results;
             if (!string.IsNullOrWhiteSpace(request.PatientName))
             {
                 resultsToReturn = resultsToReturn.Where(x => x.PatientName.Contains(request.PatientName));

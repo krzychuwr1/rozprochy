@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MedicalServer
 {
-    public static class DataBase
+    public static class DataGenerator
     {
         private static List<(string property, string unit)> dataTypes = new List<(string, string)>()
             {
