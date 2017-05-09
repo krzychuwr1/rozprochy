@@ -40,6 +40,7 @@ namespace Patient
             Channel channel = new Channel("127.0.0.1:50051", ChannelCredentials.Insecure);
 
             var client = new Client(new Medical.Patient.PatientClient(channel));
+            Console.WriteLine("---PATIENT---");
             Console.WriteLine("Enter your name:");
             var name = Console.ReadLine();
             client.GetFilteredResults(name);

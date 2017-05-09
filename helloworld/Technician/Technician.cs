@@ -26,6 +26,7 @@ namespace Medical
             Channel channel = new Channel("127.0.0.1:50051", ChannelCredentials.Insecure);
 
             var client = new Client(new Technician.TechnicianClient(channel));
+            Console.WriteLine("---TECHNICIAN---");
             while (true)
             {
                 var resultToAdd = new MedicalResult

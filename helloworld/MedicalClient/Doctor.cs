@@ -68,6 +68,7 @@ namespace Doctor
             Channel channel = new Channel("127.0.0.1:50051", ChannelCredentials.Insecure);
 
             var client = new Client(new Medical.Doctor.DoctorClient(channel));
+            Console.WriteLine("---DOCTOR---");
             while (true)
             {
                 Console.WriteLine("Filter results?");
@@ -81,8 +82,8 @@ namespace Doctor
                     Console.WriteLine("Filter by patient:");
                     query.PatientName = Console.ReadLine();
 
-                    //Console.WriteLine("Filter by doctor:");
-                    //todo
+                    Console.WriteLine("Filter by doctor:");
+                    query.DoctorName = Console.ReadLine(); 
 
                     Console.WriteLine("Filter by record type:");
                     query.RecordName = Console.ReadLine();
@@ -90,6 +91,16 @@ namespace Doctor
                     Console.WriteLine("Filter by record minimum value:");
                     Double.TryParse(Console.ReadLine(), out double value);
                     query.MinimalValue = value;
+
+                    Console.WriteLine("Filter by start date:");
+                    DateTime result;
+                    var dateString = Console.ReadLine();
+                    while (!DateTime.TryParse(dateString, out result) && !string.IsNullOrEmpty(dateString))
+                    {
+                        dateString = Console.ReadLine();
+                        Console.WriteLine("Incorrect date format!");
+                    }
+                    query.StartDate = result.Ticks;
 
                     Task.Run(() => client.GetFilteredResults(query));
                 }

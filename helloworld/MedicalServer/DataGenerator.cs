@@ -46,7 +46,7 @@ namespace MedicalServer
 
                 var t = new MedicalResult
                 {
-                    Date = DateTime.Now.Ticks - rand.Next(),
+                    Date = DateTime.Now.AddDays(-rand.Next(0, 1000)).Ticks,
                     DoctorName = doctors[rand.Next(0, doctors.Count - 1)],
                     PatientName = patients[rand.Next(0, patients.Count - 1)],
                 };

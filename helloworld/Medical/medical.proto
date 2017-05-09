@@ -72,7 +72,8 @@ message PatientRequest {
 message FilterRequest {
 	string patientName = 1;
 	string recordName = 2;
-	int64 startDate = 3;
-	double minimalValue = 4;
+	string doctorName = 3;
+	int64 startDate = 4;
+	double minimalValue = 5;
 
 }

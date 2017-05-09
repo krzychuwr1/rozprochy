@@ -78,6 +78,11 @@ namespace MedicalServer
                     .Where(x => x.Records.Where(y => y.Name.Equals(request.RecordName))
                     .Any(y => y.Value > request.MinimalValue));
             }
+            if (!string.IsNullOrWhiteSpace(request.DoctorName))
+            {
+                resultsToReturn = resultsToReturn
+                    .Where(x => x.DoctorName == request.DoctorName);
+            }
 
             foreach (var result in resultsToReturn)
             {
@@ -105,6 +110,7 @@ namespace MedicalServer
             };
             server.Start();
 
+            Console.WriteLine("---SERVER---");
             Console.WriteLine($"Medical server listening on port {Port} ");
             Console.WriteLine("Press any key to stop the server...");
             Console.ReadKey();

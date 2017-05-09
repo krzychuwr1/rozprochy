@@ -27,15 +27,15 @@ namespace Medical {
             "CRIMCgREYXRlGAMgASgDEiAKB1JlY29yZHMYBCADKAsyDy5tZWRpY2FsLlJl",
             "Y29yZCIzCgZSZWNvcmQSDAoETmFtZRgBIAEoCRINCgVWYWx1ZRgCIAEoARIM",
             "CgRVbml0GAMgASgJIh4KDlBhdGllbnRSZXF1ZXN0EgwKBG5hbWUYASABKAki",
-            "YQoNRmlsdGVyUmVxdWVzdBITCgtwYXRpZW50TmFtZRgBIAEoCRISCgpyZWNv",
-            "cmROYW1lGAIgASgJEhEKCXN0YXJ0RGF0ZRgDIAEoAxIUCgxtaW5pbWFsVmFs",
-            "dWUYBCABKAEySgoGRG9jdG9yEkAKCkdldFJlc3VsdHMSFi5tZWRpY2FsLkZp",
-            "bHRlclJlcXVlc3QaFi5tZWRpY2FsLk1lZGljYWxSZXN1bHQiADABMkYKClRl",
-            "Y2huaWNpYW4SOAoMQWRkTmV3UmVzdWx0EhYubWVkaWNhbC5NZWRpY2FsUmVz",
-            "dWx0Gg4ubWVkaWNhbC5FbXB0eSIAMkwKB1BhdGllbnQSQQoKR2V0UmVzdWx0",
-            "cxIXLm1lZGljYWwuUGF0aWVudFJlcXVlc3QaFi5tZWRpY2FsLk1lZGljYWxS",
-            "ZXN1bHQiADABQjAKGGlvLmdycGMuZXhhbXBsZXMubWVkaWNhbEIMbWVkaWNh",
-            "bFByb3RvUAGiAgNITFdiBnByb3RvMw=="));
+            "dQoNRmlsdGVyUmVxdWVzdBITCgtwYXRpZW50TmFtZRgBIAEoCRISCgpyZWNv",
+            "cmROYW1lGAIgASgJEhIKCmRvY3Rvck5hbWUYAyABKAkSEQoJc3RhcnREYXRl",
+            "GAQgASgDEhQKDG1pbmltYWxWYWx1ZRgFIAEoATJKCgZEb2N0b3ISQAoKR2V0",
+            "UmVzdWx0cxIWLm1lZGljYWwuRmlsdGVyUmVxdWVzdBoWLm1lZGljYWwuTWVk",
+            "aWNhbFJlc3VsdCIAMAEyRgoKVGVjaG5pY2lhbhI4CgxBZGROZXdSZXN1bHQS",
+            "Fi5tZWRpY2FsLk1lZGljYWxSZXN1bHQaDi5tZWRpY2FsLkVtcHR5IgAyTAoH",
+            "UGF0aWVudBJBCgpHZXRSZXN1bHRzEhcubWVkaWNhbC5QYXRpZW50UmVxdWVz",
+            "dBoWLm1lZGljYWwuTWVkaWNhbFJlc3VsdCIAMAFCMAoYaW8uZ3JwYy5leGFt",
+            "cGxlcy5tZWRpY2FsQgxtZWRpY2FsUHJvdG9QAaICA0hMV2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
@@ -43,7 +43,7 @@ namespace Medical {
             new pbr::GeneratedClrTypeInfo(typeof(global::Medical.MedicalResult), global::Medical.MedicalResult.Parser, new[]{ "PatientName", "DoctorName", "Date", "Records" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Medical.Record), global::Medical.Record.Parser, new[]{ "Name", "Value", "Unit" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Medical.PatientRequest), global::Medical.PatientRequest.Parser, new[]{ "Name" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Medical.FilterRequest), global::Medical.FilterRequest.Parser, new[]{ "PatientName", "RecordName", "StartDate", "MinimalValue" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Medical.FilterRequest), global::Medical.FilterRequest.Parser, new[]{ "PatientName", "RecordName", "DoctorName", "StartDate", "MinimalValue" }, null, null, null)
           }));
     }
     #endregion
@@ -648,6 +648,7 @@ namespace Medical {
     public FilterRequest(FilterRequest other) : this() {
       patientName_ = other.patientName_;
       recordName_ = other.recordName_;
+      doctorName_ = other.doctorName_;
       startDate_ = other.startDate_;
       minimalValue_ = other.minimalValue_;
     }
@@ -679,8 +680,19 @@ namespace Medical {
       }
     }
 
+    /// <summary>Field number for the "doctorName" field.</summary>
+    public const int DoctorNameFieldNumber = 3;
+    private string doctorName_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string DoctorName {
+      get { return doctorName_; }
+      set {
+        doctorName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     /// <summary>Field number for the "startDate" field.</summary>
-    public const int StartDateFieldNumber = 3;
+    public const int StartDateFieldNumber = 4;
     private long startDate_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public long StartDate {
@@ -691,7 +703,7 @@ namespace Medical {
     }
 
     /// <summary>Field number for the "minimalValue" field.</summary>
-    public const int MinimalValueFieldNumber = 4;
+    public const int MinimalValueFieldNumber = 5;
     private double minimalValue_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public double MinimalValue {
@@ -716,6 +728,7 @@ namespace Medical {
       }
       if (PatientName != other.PatientName) return false;
       if (RecordName != other.RecordName) return false;
+      if (DoctorName != other.DoctorName) return false;
       if (StartDate != other.StartDate) return false;
       if (MinimalValue != other.MinimalValue) return false;
       return true;
@@ -726,6 +739,7 @@ namespace Medical {
       int hash = 1;
       if (PatientName.Length != 0) hash ^= PatientName.GetHashCode();
       if (RecordName.Length != 0) hash ^= RecordName.GetHashCode();
+      if (DoctorName.Length != 0) hash ^= DoctorName.GetHashCode();
       if (StartDate != 0L) hash ^= StartDate.GetHashCode();
       if (MinimalValue != 0D) hash ^= MinimalValue.GetHashCode();
       return hash;
@@ -746,12 +760,16 @@ namespace Medical {
         output.WriteRawTag(18);
         output.WriteString(RecordName);
       }
+      if (DoctorName.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(DoctorName);
+      }
       if (StartDate != 0L) {
-        output.WriteRawTag(24);
+        output.WriteRawTag(32);
         output.WriteInt64(StartDate);
       }
       if (MinimalValue != 0D) {
-        output.WriteRawTag(33);
+        output.WriteRawTag(41);
         output.WriteDouble(MinimalValue);
       }
     }
@@ -764,6 +782,9 @@ namespace Medical {
       }
       if (RecordName.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(RecordName);
+      }
+      if (DoctorName.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(DoctorName);
       }
       if (StartDate != 0L) {
         size += 1 + pb::CodedOutputStream.ComputeInt64Size(StartDate);
@@ -784,6 +805,9 @@ namespace Medical {
       }
       if (other.RecordName.Length != 0) {
         RecordName = other.RecordName;
+      }
+      if (other.DoctorName.Length != 0) {
+        DoctorName = other.DoctorName;
       }
       if (other.StartDate != 0L) {
         StartDate = other.StartDate;
@@ -809,11 +833,15 @@ namespace Medical {
             RecordName = input.ReadString();
             break;
           }
-          case 24: {
+          case 26: {
+            DoctorName = input.ReadString();
+            break;
+          }
+          case 32: {
             StartDate = input.ReadInt64();
             break;
           }
-          case 33: {
+          case 41: {
             MinimalValue = input.ReadDouble();
             break;
           }
