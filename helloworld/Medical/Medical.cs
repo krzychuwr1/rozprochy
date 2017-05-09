@@ -22,26 +22,27 @@ namespace Medical {
     static MedicalReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "Cg1tZWRpY2FsLnByb3RvEgdtZWRpY2FsIgcKBUVtcHR5InIKDU1lZGljYWxS",
-            "ZXN1bHQSEwoLUGF0aWVudE5hbWUYASABKAkSEgoKRG9jdG9yTmFtZRgCIAEo",
-            "CRIMCgREYXRlGAMgASgDEioKB1Jlc3VsdHMYBCADKAsyGS5tZWRpY2FsLlNp",
-            "bmdsZVRlc3RSZXN1bHQiPQoQU2luZ2xlVGVzdFJlc3VsdBIMCgROYW1lGAEg",
-            "ASgJEg0KBVZhbHVlGAIgASgBEgwKBFVuaXQYAyABKAkiHgoOUGF0aWVudFJl",
-            "cXVlc3QSDAoEbmFtZRgBIAEoCSJ1Cg1GaWx0ZXJSZXF1ZXN0EhMKC3BhdGll",
-            "bnROYW1lGAEgASgJEhIKCnJlY29yZE5hbWUYAiABKAkSEgoKZG9jdG9yTmFt",
-            "ZRgDIAEoCRIRCglzdGFydERhdGUYBCABKAMSFAoMbWluaW1hbFZhbHVlGAUg",
-            "ASgBMkoKBkRvY3RvchJACgpHZXRSZXN1bHRzEhYubWVkaWNhbC5GaWx0ZXJS",
-            "ZXF1ZXN0GhYubWVkaWNhbC5NZWRpY2FsUmVzdWx0IgAwATJGCgpUZWNobmlj",
-            "aWFuEjgKDEFkZE5ld1Jlc3VsdBIWLm1lZGljYWwuTWVkaWNhbFJlc3VsdBoO",
-            "Lm1lZGljYWwuRW1wdHkiADJMCgdQYXRpZW50EkEKCkdldFJlc3VsdHMSFy5t",
-            "ZWRpY2FsLlBhdGllbnRSZXF1ZXN0GhYubWVkaWNhbC5NZWRpY2FsUmVzdWx0",
-            "IgAwAUIwChhpby5ncnBjLmV4YW1wbGVzLm1lZGljYWxCDG1lZGljYWxQcm90",
-            "b1ABogIDSExXYgZwcm90bzM="));
+            "Cg1tZWRpY2FsLnByb3RvEgdtZWRpY2FsIgcKBUVtcHR5InAKC01lZGljYWxE",
+            "YXRhEhMKC1BhdGllbnROYW1lGAEgASgJEhIKCkRvY3Rvck5hbWUYAiABKAkS",
+            "DAoERGF0ZRgDIAEoAxIqCgdSZXN1bHRzGAQgAygLMhkubWVkaWNhbC5TaW5n",
+            "bGVUZXN0UmVzdWx0Ij0KEFNpbmdsZVRlc3RSZXN1bHQSDAoETmFtZRgBIAEo",
+            "CRINCgVWYWx1ZRgCIAEoARIMCgRVbml0GAMgASgJIh4KDlBhdGllbnRSZXF1",
+            "ZXN0EgwKBG5hbWUYASABKAkidQoNRmlsdGVyUmVxdWVzdBITCgtwYXRpZW50",
+            "TmFtZRgBIAEoCRISCgpyZWNvcmROYW1lGAIgASgJEhIKCmRvY3Rvck5hbWUY",
+            "AyABKAkSEQoJc3RhcnREYXRlGAQgASgDEhQKDG1pbmltYWxWYWx1ZRgFIAEo",
+            "ATJVChNEb2N0b3JSZXN1bHRzR2V0dGVyEj4KCkdldFJlc3VsdHMSFi5tZWRp",
+            "Y2FsLkZpbHRlclJlcXVlc3QaFC5tZWRpY2FsLk1lZGljYWxEYXRhIgAwATJQ",
+            "ChZUZWNobmljaWFuUmVzdWx0c0FkZGVyEjYKDEFkZE5ld1Jlc3VsdBIULm1l",
+            "ZGljYWwuTWVkaWNhbERhdGEaDi5tZWRpY2FsLkVtcHR5IgAyVwoUUGF0aWVu",
+            "dFJlc3VsdHNHZXR0ZXISPwoKR2V0UmVzdWx0cxIXLm1lZGljYWwuUGF0aWVu",
+            "dFJlcXVlc3QaFC5tZWRpY2FsLk1lZGljYWxEYXRhIgAwAUIwChhpby5ncnBj",
+            "LmV4YW1wbGVzLm1lZGljYWxCDG1lZGljYWxQcm90b1ABogIDSExXYgZwcm90",
+            "bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Medical.Empty), global::Medical.Empty.Parser, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Medical.MedicalResult), global::Medical.MedicalResult.Parser, new[]{ "PatientName", "DoctorName", "Date", "Results" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Medical.MedicalData), global::Medical.MedicalData.Parser, new[]{ "PatientName", "DoctorName", "Date", "Results" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Medical.SingleTestResult), global::Medical.SingleTestResult.Parser, new[]{ "Name", "Value", "Unit" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Medical.PatientRequest), global::Medical.PatientRequest.Parser, new[]{ "Name" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Medical.FilterRequest), global::Medical.FilterRequest.Parser, new[]{ "PatientName", "RecordName", "DoctorName", "StartDate", "MinimalValue" }, null, null, null)
@@ -140,10 +141,10 @@ namespace Medical {
 
   }
 
-  public sealed partial class MedicalResult : pb::IMessage<MedicalResult> {
-    private static readonly pb::MessageParser<MedicalResult> _parser = new pb::MessageParser<MedicalResult>(() => new MedicalResult());
+  public sealed partial class MedicalData : pb::IMessage<MedicalData> {
+    private static readonly pb::MessageParser<MedicalData> _parser = new pb::MessageParser<MedicalData>(() => new MedicalData());
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<MedicalResult> Parser { get { return _parser; } }
+    public static pb::MessageParser<MedicalData> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
@@ -156,14 +157,14 @@ namespace Medical {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public MedicalResult() {
+    public MedicalData() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public MedicalResult(MedicalResult other) : this() {
+    public MedicalData(MedicalData other) : this() {
       patientName_ = other.patientName_;
       doctorName_ = other.doctorName_;
       date_ = other.date_;
@@ -171,8 +172,8 @@ namespace Medical {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public MedicalResult Clone() {
-      return new MedicalResult(this);
+    public MedicalData Clone() {
+      return new MedicalData(this);
     }
 
     /// <summary>Field number for the "PatientName" field.</summary>
@@ -220,11 +221,11 @@ namespace Medical {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as MedicalResult);
+      return Equals(other as MedicalData);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(MedicalResult other) {
+    public bool Equals(MedicalData other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -287,7 +288,7 @@ namespace Medical {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(MedicalResult other) {
+    public void MergeFrom(MedicalData other) {
       if (other == null) {
         return;
       }

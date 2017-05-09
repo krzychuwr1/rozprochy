@@ -37,9 +37,9 @@ namespace Doctor
 {
     class Client
     {
-        private Medical.Doctor.DoctorClient _client { get; set; }
+        private Medical.DoctorResultsGetter.DoctorResultsGetterClient _client { get; set; }
 
-        public Client(Medical.Doctor.DoctorClient client)
+        public Client(Medical.DoctorResultsGetter.DoctorResultsGetterClient client)
         {
             _client = client;
         }
@@ -67,7 +67,7 @@ namespace Doctor
         {
             Channel channel = new Channel("127.0.0.1:50051", ChannelCredentials.Insecure);
 
-            var client = new Client(new Medical.Doctor.DoctorClient(channel));
+            var client = new Client(new Medical.DoctorResultsGetter.DoctorResultsGetterClient(channel));
             Console.WriteLine("---DOCTOR---");
             while (true)
             {
@@ -85,10 +85,10 @@ namespace Doctor
                     Console.WriteLine("Filter by doctor:");
                     query.DoctorName = Console.ReadLine(); 
 
-                    Console.WriteLine("Filter by record type:");
+                    Console.WriteLine("Filter by test type:");
                     query.RecordName = Console.ReadLine();
 
-                    Console.WriteLine("Filter by record minimum value:");
+                    Console.WriteLine("Filter by test result minimum value:");
                     Double.TryParse(Console.ReadLine(), out double value);
                     query.MinimalValue = value;
 

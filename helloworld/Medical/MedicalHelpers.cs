@@ -9,7 +9,7 @@ namespace Medical
 {
     public static class MedicalHelpers
     {
-        public static void WriteResultToConsole(MedicalResult result)
+        public static void WriteResultToConsole(MedicalData result)
         {
             Console.WriteLine($"Doctor : {result.DoctorName}, Patient : {result.PatientName} Date: {new DateTime(result.Date).ToString()} {Environment.NewLine}");
 

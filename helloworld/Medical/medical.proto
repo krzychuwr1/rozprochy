@@ -36,23 +36,23 @@ option objc_class_prefix = "HLW";
 
 package medical;
 
-service Doctor {
- rpc GetResults (FilterRequest) returns (stream MedicalResult) {}
+service DoctorResultsGetter {
+ rpc GetResults (FilterRequest) returns (stream MedicalData) {}
 }
 
-service Technician {
- rpc AddNewResult (MedicalResult) returns (Empty) {}
+service TechnicianResultsAdder {
+ rpc AddNewResult (MedicalData) returns (Empty) {}
 }
 
-service Patient {
- rpc GetResults (PatientRequest) returns (stream MedicalResult) {}
+service PatientResultsGetter {
+ rpc GetResults (PatientRequest) returns (stream MedicalData) {}
 }
 
 message  Empty {
 
 }
 
-message MedicalResult {
+message MedicalData {
   string PatientName = 1;
   string DoctorName = 2;
   int64 Date = 3;

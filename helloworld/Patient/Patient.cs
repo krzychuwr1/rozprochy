@@ -8,9 +8,9 @@ namespace Patient
 {
     class Client
     {
-        private Medical.Patient.PatientClient _client { get; set; }
+        private Medical.PatientResultsGetter.PatientResultsGetterClient _client { get; set; }
 
-        public Client(Medical.Patient.PatientClient client)
+        public Client(Medical.PatientResultsGetter.PatientResultsGetterClient client)
         {
             _client = client;
         }
@@ -39,7 +39,7 @@ namespace Patient
         {
             Channel channel = new Channel("127.0.0.1:50051", ChannelCredentials.Insecure);
 
-            var client = new Client(new Medical.Patient.PatientClient(channel));
+            var client = new Client(new Medical.PatientResultsGetter.PatientResultsGetterClient(channel));
             Console.WriteLine("---PATIENT---");
             Console.WriteLine("Enter your name:");
             var name = Console.ReadLine();

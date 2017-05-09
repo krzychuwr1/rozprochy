@@ -36,20 +36,20 @@ using System.Collections.Generic;
 
 namespace MedicalServer
 {
-    class TechnicianImplementation : Technician.TechnicianBase
+    class TechnicianImplementation : TechnicianResultsAdder.TechnicianResultsAdderBase
     {
-        public override Task<Empty> AddNewResult(MedicalResult request, ServerCallContext context)
+        public override Task<Empty> AddNewResult(MedicalData request, ServerCallContext context)
         {
             DataGenerator.Results.Add(request);
             return Task.FromResult(new Empty());
         }
     }
 
-    class PatientImplementation : Patient.PatientBase
+    class PatientImplementation : PatientResultsGetter.PatientResultsGetterBase
     {
-        public override async Task GetResults(PatientRequest request, IServerStreamWriter<MedicalResult> responseStream, ServerCallContext context)
+        public override async Task GetResults(PatientRequest request, IServerStreamWriter<MedicalData> responseStream, ServerCallContext context)
         {
-            IEnumerable<MedicalResult> resultsToReturn = DataGenerator.Results.Where(x => x.PatientName.Equals(request.Name));
+            List<MedicalData> resultsToReturn = DataGenerator.Results.Where(x => x.PatientName.Equals(request.Name)).ToList();
             foreach (var result in resultsToReturn)
             {
                 await responseStream.WriteAsync(result);
@@ -58,11 +58,11 @@ namespace MedicalServer
         }
     }
 
-    class DoctorImplementation : Doctor.DoctorBase
+    class DoctorImplementation : DoctorResultsGetter.DoctorResultsGetterBase
     {
-        public override async Task GetResults(FilterRequest request, IServerStreamWriter<MedicalResult> responseStream, ServerCallContext context)
+        public override async Task GetResults(FilterRequest request, IServerStreamWriter<MedicalData> responseStream, ServerCallContext context)
         {
-            IEnumerable<MedicalResult> resultsToReturn = DataGenerator.Results;
+            IEnumerable<MedicalData> resultsToReturn = DataGenerator.Results;
             if (!string.IsNullOrWhiteSpace(request.PatientName))
             {
                 resultsToReturn = resultsToReturn.Where(x => x.PatientName.Contains(request.PatientName));
@@ -84,7 +84,7 @@ namespace MedicalServer
                     .Where(x => x.DoctorName == request.DoctorName);
             }
 
-            foreach (var result in resultsToReturn)
+            foreach (var result in resultsToReturn.ToList())
             {
                 await responseStream.WriteAsync(result);
                 await Task.Delay(5000);
@@ -102,9 +102,9 @@ namespace MedicalServer
             {
                 Services =
                 {
-                  Doctor.BindService(new DoctorImplementation()),
-                  Technician.BindService(new TechnicianImplementation()),
-                  Patient.BindService(new PatientImplementation())
+                  DoctorResultsGetter.BindService(new DoctorImplementation()),
+                  TechnicianResultsAdder.BindService(new TechnicianImplementation()),
+                  PatientResultsGetter.BindService(new PatientImplementation())
                 },
                 Ports = { new ServerPort("localhost", Port, ServerCredentials.Insecure) }
             };

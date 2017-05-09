@@ -32,7 +32,7 @@ namespace MedicalServer
 
         private static Random rand = new Random();
 
-        public static List<MedicalResult> Results { get; set; } = GenerateRandomResults().Take(100).ToList();
+        public static List<MedicalData> Results { get; set; } = GenerateRandomResults().Take(100).ToList();
 
         private static IEnumerable<SingleTestResult> GenerateRecords()
         {
@@ -51,21 +51,21 @@ namespace MedicalServer
             }
         }
 
-        private static IEnumerable<MedicalResult> GenerateRandomResults()
+        private static IEnumerable<MedicalData> GenerateRandomResults()
         {
             while (true)
             {
 
-                var medicalResult = new MedicalResult
+                var MedicalData = new MedicalData
                 {
                     Date = DateTime.Now.AddDays(-rand.Next(0, 1000)).Ticks,
                     DoctorName = doctors[rand.Next(0, doctors.Count - 1)],
                     PatientName = patients[rand.Next(0, patients.Count - 1)],
                 };
 
-                medicalResult.Results.AddRange(GenerateRecords().Take(rand.Next(1, 6)));
+                MedicalData.Results.AddRange(GenerateRecords().Take(rand.Next(1, 6)));
 
-                yield return medicalResult;
+                yield return MedicalData;
 
             }
         }

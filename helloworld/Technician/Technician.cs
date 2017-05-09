@@ -3,18 +3,18 @@ using Grpc.Core;
 using System.Collections.Generic;
 using Medical;
 
-namespace Medical
+namespace Technician
 {
     class Client
     {
-        private Technician.TechnicianClient _client { get; set; }
+        private Medical.TechnicianResultsAdder.TechnicianResultsAdderClient _client { get; set; }
 
-        public Client(Technician.TechnicianClient client)
+        public Client(Medical.TechnicianResultsAdder.TechnicianResultsAdderClient client)
         {
             _client = client;
         }
 
-        public async void SaveNewResult(MedicalResult result)
+        public async void SaveNewResult(MedicalData result)
         {
             await _client.AddNewResultAsync(result);
         }
@@ -25,11 +25,11 @@ namespace Medical
         {
             Channel channel = new Channel("127.0.0.1:50051", ChannelCredentials.Insecure);
 
-            var client = new Client(new Technician.TechnicianClient(channel));
+            var client = new Client(new Medical.TechnicianResultsAdder.TechnicianResultsAdderClient(channel));
             Console.WriteLine("---TECHNICIAN---");
             while (true)
             {
-                var resultToAdd = new MedicalResult
+                var resultToAdd = new MedicalData
                 {
                     Date = DateTime.Now.Ticks
                 };
