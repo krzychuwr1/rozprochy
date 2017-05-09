@@ -14,7 +14,7 @@ namespace Medical
             Console.WriteLine($"Doctor : {result.DoctorName}, Patient : {result.PatientName} Date: {new DateTime(result.Date).ToString()} {Environment.NewLine}");
 
             Console.WriteLine("Property        Value                   Unit");
-            foreach (var record in result.Records)
+            foreach (var record in result.Results)
             {
                 Console.WriteLine($"{record.Name.PadRight(15, ' ')} {record.Value.ToString().PadRight(20, ' ')}    {record.Unit}");
             }

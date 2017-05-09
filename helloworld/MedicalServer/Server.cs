@@ -74,8 +74,8 @@ namespace MedicalServer
             if (!string.IsNullOrWhiteSpace(request.RecordName))
             {
                 resultsToReturn = resultsToReturn
-                    .Where(x => x.Records.Select(y => y.Name).Contains(request.RecordName))
-                    .Where(x => x.Records.Where(y => y.Name.Equals(request.RecordName))
+                    .Where(x => x.Results.Select(y => y.Name).Contains(request.RecordName))
+                    .Where(x => x.Results.Where(y => y.Name.Equals(request.RecordName))
                     .Any(y => y.Value > request.MinimalValue));
             }
             if (!string.IsNullOrWhiteSpace(request.DoctorName))

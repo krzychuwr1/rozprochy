@@ -22,26 +22,27 @@ namespace Medical {
     static MedicalReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "Cg1tZWRpY2FsLnByb3RvEgdtZWRpY2FsIgcKBUVtcHR5ImgKDU1lZGljYWxS",
+            "Cg1tZWRpY2FsLnByb3RvEgdtZWRpY2FsIgcKBUVtcHR5InIKDU1lZGljYWxS",
             "ZXN1bHQSEwoLUGF0aWVudE5hbWUYASABKAkSEgoKRG9jdG9yTmFtZRgCIAEo",
-            "CRIMCgREYXRlGAMgASgDEiAKB1JlY29yZHMYBCADKAsyDy5tZWRpY2FsLlJl",
-            "Y29yZCIzCgZSZWNvcmQSDAoETmFtZRgBIAEoCRINCgVWYWx1ZRgCIAEoARIM",
-            "CgRVbml0GAMgASgJIh4KDlBhdGllbnRSZXF1ZXN0EgwKBG5hbWUYASABKAki",
-            "dQoNRmlsdGVyUmVxdWVzdBITCgtwYXRpZW50TmFtZRgBIAEoCRISCgpyZWNv",
-            "cmROYW1lGAIgASgJEhIKCmRvY3Rvck5hbWUYAyABKAkSEQoJc3RhcnREYXRl",
-            "GAQgASgDEhQKDG1pbmltYWxWYWx1ZRgFIAEoATJKCgZEb2N0b3ISQAoKR2V0",
-            "UmVzdWx0cxIWLm1lZGljYWwuRmlsdGVyUmVxdWVzdBoWLm1lZGljYWwuTWVk",
-            "aWNhbFJlc3VsdCIAMAEyRgoKVGVjaG5pY2lhbhI4CgxBZGROZXdSZXN1bHQS",
-            "Fi5tZWRpY2FsLk1lZGljYWxSZXN1bHQaDi5tZWRpY2FsLkVtcHR5IgAyTAoH",
-            "UGF0aWVudBJBCgpHZXRSZXN1bHRzEhcubWVkaWNhbC5QYXRpZW50UmVxdWVz",
-            "dBoWLm1lZGljYWwuTWVkaWNhbFJlc3VsdCIAMAFCMAoYaW8uZ3JwYy5leGFt",
-            "cGxlcy5tZWRpY2FsQgxtZWRpY2FsUHJvdG9QAaICA0hMV2IGcHJvdG8z"));
+            "CRIMCgREYXRlGAMgASgDEioKB1Jlc3VsdHMYBCADKAsyGS5tZWRpY2FsLlNp",
+            "bmdsZVRlc3RSZXN1bHQiPQoQU2luZ2xlVGVzdFJlc3VsdBIMCgROYW1lGAEg",
+            "ASgJEg0KBVZhbHVlGAIgASgBEgwKBFVuaXQYAyABKAkiHgoOUGF0aWVudFJl",
+            "cXVlc3QSDAoEbmFtZRgBIAEoCSJ1Cg1GaWx0ZXJSZXF1ZXN0EhMKC3BhdGll",
+            "bnROYW1lGAEgASgJEhIKCnJlY29yZE5hbWUYAiABKAkSEgoKZG9jdG9yTmFt",
+            "ZRgDIAEoCRIRCglzdGFydERhdGUYBCABKAMSFAoMbWluaW1hbFZhbHVlGAUg",
+            "ASgBMkoKBkRvY3RvchJACgpHZXRSZXN1bHRzEhYubWVkaWNhbC5GaWx0ZXJS",
+            "ZXF1ZXN0GhYubWVkaWNhbC5NZWRpY2FsUmVzdWx0IgAwATJGCgpUZWNobmlj",
+            "aWFuEjgKDEFkZE5ld1Jlc3VsdBIWLm1lZGljYWwuTWVkaWNhbFJlc3VsdBoO",
+            "Lm1lZGljYWwuRW1wdHkiADJMCgdQYXRpZW50EkEKCkdldFJlc3VsdHMSFy5t",
+            "ZWRpY2FsLlBhdGllbnRSZXF1ZXN0GhYubWVkaWNhbC5NZWRpY2FsUmVzdWx0",
+            "IgAwAUIwChhpby5ncnBjLmV4YW1wbGVzLm1lZGljYWxCDG1lZGljYWxQcm90",
+            "b1ABogIDSExXYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Medical.Empty), global::Medical.Empty.Parser, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Medical.MedicalResult), global::Medical.MedicalResult.Parser, new[]{ "PatientName", "DoctorName", "Date", "Records" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Medical.Record), global::Medical.Record.Parser, new[]{ "Name", "Value", "Unit" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Medical.MedicalResult), global::Medical.MedicalResult.Parser, new[]{ "PatientName", "DoctorName", "Date", "Results" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Medical.SingleTestResult), global::Medical.SingleTestResult.Parser, new[]{ "Name", "Value", "Unit" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Medical.PatientRequest), global::Medical.PatientRequest.Parser, new[]{ "Name" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Medical.FilterRequest), global::Medical.FilterRequest.Parser, new[]{ "PatientName", "RecordName", "DoctorName", "StartDate", "MinimalValue" }, null, null, null)
           }));
@@ -166,7 +167,7 @@ namespace Medical {
       patientName_ = other.patientName_;
       doctorName_ = other.doctorName_;
       date_ = other.date_;
-      records_ = other.records_.Clone();
+      results_ = other.results_.Clone();
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -207,14 +208,14 @@ namespace Medical {
       }
     }
 
-    /// <summary>Field number for the "Records" field.</summary>
-    public const int RecordsFieldNumber = 4;
-    private static readonly pb::FieldCodec<global::Medical.Record> _repeated_records_codec
-        = pb::FieldCodec.ForMessage(34, global::Medical.Record.Parser);
-    private readonly pbc::RepeatedField<global::Medical.Record> records_ = new pbc::RepeatedField<global::Medical.Record>();
+    /// <summary>Field number for the "Results" field.</summary>
+    public const int ResultsFieldNumber = 4;
+    private static readonly pb::FieldCodec<global::Medical.SingleTestResult> _repeated_results_codec
+        = pb::FieldCodec.ForMessage(34, global::Medical.SingleTestResult.Parser);
+    private readonly pbc::RepeatedField<global::Medical.SingleTestResult> results_ = new pbc::RepeatedField<global::Medical.SingleTestResult>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::Medical.Record> Records {
-      get { return records_; }
+    public pbc::RepeatedField<global::Medical.SingleTestResult> Results {
+      get { return results_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -233,7 +234,7 @@ namespace Medical {
       if (PatientName != other.PatientName) return false;
       if (DoctorName != other.DoctorName) return false;
       if (Date != other.Date) return false;
-      if(!records_.Equals(other.records_)) return false;
+      if(!results_.Equals(other.results_)) return false;
       return true;
     }
 
@@ -243,7 +244,7 @@ namespace Medical {
       if (PatientName.Length != 0) hash ^= PatientName.GetHashCode();
       if (DoctorName.Length != 0) hash ^= DoctorName.GetHashCode();
       if (Date != 0L) hash ^= Date.GetHashCode();
-      hash ^= records_.GetHashCode();
+      hash ^= results_.GetHashCode();
       return hash;
     }
 
@@ -266,7 +267,7 @@ namespace Medical {
         output.WriteRawTag(24);
         output.WriteInt64(Date);
       }
-      records_.WriteTo(output, _repeated_records_codec);
+      results_.WriteTo(output, _repeated_results_codec);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -281,7 +282,7 @@ namespace Medical {
       if (Date != 0L) {
         size += 1 + pb::CodedOutputStream.ComputeInt64Size(Date);
       }
-      size += records_.CalculateSize(_repeated_records_codec);
+      size += results_.CalculateSize(_repeated_results_codec);
       return size;
     }
 
@@ -299,7 +300,7 @@ namespace Medical {
       if (other.Date != 0L) {
         Date = other.Date;
       }
-      records_.Add(other.records_);
+      results_.Add(other.results_);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -323,7 +324,7 @@ namespace Medical {
             break;
           }
           case 34: {
-            records_.AddEntriesFrom(input, _repeated_records_codec);
+            results_.AddEntriesFrom(input, _repeated_results_codec);
             break;
           }
         }
@@ -332,10 +333,10 @@ namespace Medical {
 
   }
 
-  public sealed partial class Record : pb::IMessage<Record> {
-    private static readonly pb::MessageParser<Record> _parser = new pb::MessageParser<Record>(() => new Record());
+  public sealed partial class SingleTestResult : pb::IMessage<SingleTestResult> {
+    private static readonly pb::MessageParser<SingleTestResult> _parser = new pb::MessageParser<SingleTestResult>(() => new SingleTestResult());
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<Record> Parser { get { return _parser; } }
+    public static pb::MessageParser<SingleTestResult> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
@@ -348,22 +349,22 @@ namespace Medical {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public Record() {
+    public SingleTestResult() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public Record(Record other) : this() {
+    public SingleTestResult(SingleTestResult other) : this() {
       name_ = other.name_;
       value_ = other.value_;
       unit_ = other.unit_;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public Record Clone() {
-      return new Record(this);
+    public SingleTestResult Clone() {
+      return new SingleTestResult(this);
     }
 
     /// <summary>Field number for the "Name" field.</summary>
@@ -401,11 +402,11 @@ namespace Medical {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as Record);
+      return Equals(other as SingleTestResult);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(Record other) {
+    public bool Equals(SingleTestResult other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -464,7 +465,7 @@ namespace Medical {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(Record other) {
+    public void MergeFrom(SingleTestResult other) {
       if (other == null) {
         return;
       }

@@ -46,7 +46,7 @@ namespace Medical
                         break;
                     }
 
-                    var recordToAdd = new Record();
+                    var recordToAdd = new SingleTestResult();
                     Console.WriteLine("Record name:");
                     recordToAdd.Name = Console.ReadLine();
 
@@ -57,7 +57,7 @@ namespace Medical
 
                     Console.WriteLine("Unit:");
                     recordToAdd.Unit = Console.ReadLine();
-                    resultToAdd.Records.Add(recordToAdd);
+                    resultToAdd.Results.Add(recordToAdd);
 
                 }
                 client.SaveNewResult(resultToAdd);

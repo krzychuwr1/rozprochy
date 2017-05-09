@@ -34,7 +34,7 @@ namespace MedicalServer
 
         public static List<MedicalResult> Results { get; set; } = GenerateRandomResults().Take(100).ToList();
 
-        private static IEnumerable<Record> GenerateRecords()
+        private static IEnumerable<SingleTestResult> GenerateRecords()
         {
             var rand = new Random();
 
@@ -42,7 +42,7 @@ namespace MedicalServer
             {
                 var type = dataTypes[rand.Next(0, dataTypes.Count)];
 
-                yield return new Record
+                yield return new SingleTestResult
                 {
                     Name = type.property,
                     Value = rand.NextDouble(),
@@ -63,7 +63,7 @@ namespace MedicalServer
                     PatientName = patients[rand.Next(0, patients.Count - 1)],
                 };
 
-                medicalResult.Records.AddRange(GenerateRecords().Take(rand.Next(1, 6)));
+                medicalResult.Results.AddRange(GenerateRecords().Take(rand.Next(1, 6)));
 
                 yield return medicalResult;
 

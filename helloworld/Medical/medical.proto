@@ -56,10 +56,10 @@ message MedicalResult {
   string PatientName = 1;
   string DoctorName = 2;
   int64 Date = 3;
-  repeated Record Records = 4;
+  repeated SingleTestResult Results = 4;
 }
 
-message Record {
+message SingleTestResult {
   string Name = 1;
   double Value = 2;
   string Unit = 3;
