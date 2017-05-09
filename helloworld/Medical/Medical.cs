@@ -29,17 +29,13 @@ namespace Medical {
             "CgRVbml0GAMgASgJIh4KDlBhdGllbnRSZXF1ZXN0EgwKBG5hbWUYASABKAki",
             "YwoLUXVlcnlQYXJhbXMSEwoLcGF0aWVudE5hbWUYASABKAkSEgoKcmVjb3Jk",
             "TmFtZRgCIAEoCRIRCgluZXdlclRoYW4YAyABKAMSGAoQdmFsdWVHcmVhdGVy",
-            "VGhhbhgEIAEoASIcCgxIZWxsb1JlcXVlc3QSDAoEbmFtZRgBIAEoCSIdCgpI",
-            "ZWxsb1JlcGx5Eg8KB21lc3NhZ2UYASABKAkyggEKB0dyZWV0ZXISOAoIU2F5",
-            "SGVsbG8SFS5tZWRpY2FsLkhlbGxvUmVxdWVzdBoTLm1lZGljYWwuSGVsbG9S",
-            "ZXBseSIAEj0KDVNheUhlbGxvQWdhaW4SFS5tZWRpY2FsLkhlbGxvUmVxdWVz",
-            "dBoTLm1lZGljYWwuSGVsbG9SZXBseSIAMkgKBkRvY3RvchI+CgpHZXRSZXN1",
-            "bHRzEhQubWVkaWNhbC5RdWVyeVBhcmFtcxoWLm1lZGljYWwuTWVkaWNhbFJl",
-            "c3VsdCIAMAEyRgoKVGVjaG5pY2lhbhI4CgxBZGROZXdSZXN1bHQSFi5tZWRp",
-            "Y2FsLk1lZGljYWxSZXN1bHQaDi5tZWRpY2FsLkVtcHR5IgAyTAoHUGF0aWVu",
-            "dBJBCgpHZXRSZXN1bHRzEhcubWVkaWNhbC5QYXRpZW50UmVxdWVzdBoWLm1l",
-            "ZGljYWwuTWVkaWNhbFJlc3VsdCIAMAFCMAoYaW8uZ3JwYy5leGFtcGxlcy5t",
-            "ZWRpY2FsQgxtZWRpY2FsUHJvdG9QAaICA0hMV2IGcHJvdG8z"));
+            "VGhhbhgEIAEoATJICgZEb2N0b3ISPgoKR2V0UmVzdWx0cxIULm1lZGljYWwu",
+            "UXVlcnlQYXJhbXMaFi5tZWRpY2FsLk1lZGljYWxSZXN1bHQiADABMkYKClRl",
+            "Y2huaWNpYW4SOAoMQWRkTmV3UmVzdWx0EhYubWVkaWNhbC5NZWRpY2FsUmVz",
+            "dWx0Gg4ubWVkaWNhbC5FbXB0eSIAMkwKB1BhdGllbnQSQQoKR2V0UmVzdWx0",
+            "cxIXLm1lZGljYWwuUGF0aWVudFJlcXVlc3QaFi5tZWRpY2FsLk1lZGljYWxS",
+            "ZXN1bHQiADABQjAKGGlvLmdycGMuZXhhbXBsZXMubWVkaWNhbEIMbWVkaWNh",
+            "bFByb3RvUAGiAgNITFdiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
@@ -47,9 +43,7 @@ namespace Medical {
             new pbr::GeneratedClrTypeInfo(typeof(global::Medical.MedicalResult), global::Medical.MedicalResult.Parser, new[]{ "PatientName", "DoctorName", "Date", "Records" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Medical.Record), global::Medical.Record.Parser, new[]{ "Name", "Value", "Unit" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Medical.PatientRequest), global::Medical.PatientRequest.Parser, new[]{ "Name" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Medical.QueryParams), global::Medical.QueryParams.Parser, new[]{ "PatientName", "RecordName", "NewerThan", "ValueGreaterThan" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Medical.HelloRequest), global::Medical.HelloRequest.Parser, new[]{ "Name" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Medical.HelloReply), global::Medical.HelloReply.Parser, new[]{ "Message" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Medical.QueryParams), global::Medical.QueryParams.Parser, new[]{ "PatientName", "RecordName", "NewerThan", "ValueGreaterThan" }, null, null, null)
           }));
     }
     #endregion
@@ -821,246 +815,6 @@ namespace Medical {
           }
           case 33: {
             ValueGreaterThan = input.ReadDouble();
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
-  /// <summary>
-  /// The request message containing the user's name.
-  /// </summary>
-  public sealed partial class HelloRequest : pb::IMessage<HelloRequest> {
-    private static readonly pb::MessageParser<HelloRequest> _parser = new pb::MessageParser<HelloRequest>(() => new HelloRequest());
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<HelloRequest> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::Medical.MedicalReflection.Descriptor.MessageTypes[5]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public HelloRequest() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public HelloRequest(HelloRequest other) : this() {
-      name_ = other.name_;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public HelloRequest Clone() {
-      return new HelloRequest(this);
-    }
-
-    /// <summary>Field number for the "name" field.</summary>
-    public const int NameFieldNumber = 1;
-    private string name_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Name {
-      get { return name_; }
-      set {
-        name_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as HelloRequest);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(HelloRequest other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (Name != other.Name) return false;
-      return true;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (Name.Length != 0) hash ^= Name.GetHashCode();
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (Name.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteString(Name);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (Name.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(HelloRequest other) {
-      if (other == null) {
-        return;
-      }
-      if (other.Name.Length != 0) {
-        Name = other.Name;
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            input.SkipLastField();
-            break;
-          case 10: {
-            Name = input.ReadString();
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
-  /// <summary>
-  /// The response message containing the greetings
-  /// </summary>
-  public sealed partial class HelloReply : pb::IMessage<HelloReply> {
-    private static readonly pb::MessageParser<HelloReply> _parser = new pb::MessageParser<HelloReply>(() => new HelloReply());
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<HelloReply> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::Medical.MedicalReflection.Descriptor.MessageTypes[6]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public HelloReply() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public HelloReply(HelloReply other) : this() {
-      message_ = other.message_;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public HelloReply Clone() {
-      return new HelloReply(this);
-    }
-
-    /// <summary>Field number for the "message" field.</summary>
-    public const int MessageFieldNumber = 1;
-    private string message_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Message {
-      get { return message_; }
-      set {
-        message_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as HelloReply);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(HelloReply other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (Message != other.Message) return false;
-      return true;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (Message.Length != 0) hash ^= Message.GetHashCode();
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (Message.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteString(Message);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (Message.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Message);
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(HelloReply other) {
-      if (other == null) {
-        return;
-      }
-      if (other.Message.Length != 0) {
-        Message = other.Message;
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            input.SkipLastField();
-            break;
-          case 10: {
-            Message = input.ReadString();
             break;
           }
         }

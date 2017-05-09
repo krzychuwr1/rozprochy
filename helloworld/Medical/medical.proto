@@ -36,14 +36,6 @@ option objc_class_prefix = "HLW";
 
 package medical;
 
-// The greeting service definition.
-service Greeter {
-  // Sends a greeting
-  rpc SayHello (HelloRequest) returns (HelloReply) {}
-  // Sends another greeting
-  rpc SayHelloAgain (HelloRequest) returns (HelloReply) {}
-}
-
 service Doctor {
  rpc GetResults (QueryParams) returns (stream MedicalResult) {}
 }
@@ -83,14 +75,4 @@ message QueryParams {
 	int64 newerThan = 3;
 	double valueGreaterThan = 4;
 
-}
-
-// The request message containing the user's name.
-message HelloRequest {
-  string name = 1;
-}
-
-// The response message containing the greetings
-message HelloReply {
-  string message = 1;
 }
