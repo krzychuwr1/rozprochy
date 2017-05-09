@@ -91,9 +91,6 @@ namespace Medical
                     Task.Run(() => client.GetFilteredResults(query));
                 }
             }
-
-            Console.WriteLine("Press any key to exit...");
-            Console.ReadKey();
         }
     }
 }

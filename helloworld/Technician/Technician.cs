@@ -61,9 +61,6 @@ namespace Medical
                 }
                 client.SaveNewResult(resultToAdd);
             }
-
-            Console.WriteLine("Press any key to exit...");
-            Console.ReadKey();
         }
     }
 }

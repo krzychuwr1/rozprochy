@@ -9,11 +9,7 @@ namespace MedicalServer
 {
     public static class DataBase
     {
-        public static List<MedicalResult> Results { get; set; } = GenerateRandomResults().Take(100).ToList();
-
-        private static IEnumerable<Record> GenerateRecords()
-        {
-            List<(string property, string unit)> dataTypes = new List<(string, string)>()
+        private static List<(string property, string unit)> dataTypes = new List<(string, string)>()
             {
                 ("Weight", "kg"),
                 ("Glucose", "mmol/L" ),
@@ -21,6 +17,10 @@ namespace MedicalServer
                 ("Albumin", "g/L" )
             };
 
+        public static List<MedicalResult> Results { get; set; } = GenerateRandomResults().Take(100).ToList();
+
+        private static IEnumerable<Record> GenerateRecords()
+        {
             var rand = new Random();
 
             while (true)
