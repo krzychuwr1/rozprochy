@@ -21,7 +21,9 @@ namespace MedicalServer
                 ("Sodium", "mmol/L"),
                 ("Chloride", "mmol/L"),
                 ("Potassium", "mmol/L"),
-                ("Globulin", "g/L" )
+                ("Globulin", "g/L" ),
+                ("Na++", "mEq/L"),
+                ("Protein", "g/L")
             };
 
         private static List<string> doctors = new List<string> { "D1", "D2", "D3", "D4" };
@@ -54,16 +56,16 @@ namespace MedicalServer
             while (true)
             {
 
-                var t = new MedicalResult
+                var medicalResult = new MedicalResult
                 {
                     Date = DateTime.Now.AddDays(-rand.Next(0, 1000)).Ticks,
                     DoctorName = doctors[rand.Next(0, doctors.Count - 1)],
                     PatientName = patients[rand.Next(0, patients.Count - 1)],
                 };
 
-                t.Records.AddRange(GenerateRecords().Take(rand.Next(1, 6)));
+                medicalResult.Records.AddRange(GenerateRecords().Take(rand.Next(1, 6)));
 
-                yield return t;
+                yield return medicalResult;
 
             }
         }
