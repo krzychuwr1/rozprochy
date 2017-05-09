@@ -11,11 +11,14 @@ namespace Medical
     {
         public static void WriteResultToConsole(MedicalResult result)
         {
-            Console.WriteLine($"Doctor Name: {result.DoctorName}    Patient Name: {result.PatientName}    Date: {new DateTime(result.Date).ToString()}");
+            Console.WriteLine($"Doctor : {result.DoctorName}, Patient : {result.PatientName} Date: {new DateTime(result.Date).ToString()} {Environment.NewLine}");
+
+            Console.WriteLine("Property        Value                   Unit");
             foreach (var record in result.Records)
             {
-                Console.WriteLine($"{record.Name}   {record.Value}    {record.Unit}");
+                Console.WriteLine($"{record.Name.PadRight(15, ' ')} {record.Value.ToString().PadRight(20, ' ')}    {record.Unit}");
             }
+            Console.WriteLine(Environment.NewLine);
         }
     }
 }

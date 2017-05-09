@@ -53,7 +53,7 @@ namespace MedicalServer
             foreach (var result in resultsToReturn)
             {
                 await responseStream.WriteAsync(result);
-                await Task.Delay(2000);
+                await Task.Delay(5000);
             }
         }
     }
@@ -82,7 +82,7 @@ namespace MedicalServer
             foreach (var result in resultsToReturn)
             {
                 await responseStream.WriteAsync(result);
-                await Task.Delay(2000);
+                await Task.Delay(5000);
             }
         }
     }

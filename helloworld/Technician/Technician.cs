@@ -32,9 +32,9 @@ namespace Medical
                 {
                     Date = DateTime.Now.Ticks
                 };
-                Console.WriteLine("Doctor name:");
+                Console.WriteLine("Doctor:");
                 resultToAdd.DoctorName = Console.ReadLine();
-                Console.WriteLine("Patient name:");
+                Console.WriteLine("Patient:");
                 resultToAdd.PatientName = Console.ReadLine();
 
                 while (true)
