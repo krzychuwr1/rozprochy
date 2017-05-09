@@ -33,13 +33,13 @@ using Medical;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Medical
+namespace Doctor
 {
     class Client
     {
-        private Doctor.DoctorClient _client { get; set; }
+        private Medical.Doctor.DoctorClient _client { get; set; }
 
-        public Client(Doctor.DoctorClient client)
+        public Client(Medical.Doctor.DoctorClient client)
         {
             _client = client;
         }
@@ -67,7 +67,7 @@ namespace Medical
         {
             Channel channel = new Channel("127.0.0.1:50051", ChannelCredentials.Insecure);
 
-            var client = new Client(new Doctor.DoctorClient(channel));
+            var client = new Client(new Medical.Doctor.DoctorClient(channel));
             while (true)
             {
                 Console.WriteLine("Filter results?");

@@ -4,13 +4,13 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Medical
+namespace Patient
 {
     class Client
     {
-        private Patient.PatientClient _client { get; set; }
+        private Medical.Patient.PatientClient _client { get; set; }
 
-        public Client(Patient.PatientClient client)
+        public Client(Medical.Patient.PatientClient client)
         {
             _client = client;
         }
@@ -39,7 +39,7 @@ namespace Medical
         {
             Channel channel = new Channel("127.0.0.1:50051", ChannelCredentials.Insecure);
 
-            var client = new Client(new Patient.PatientClient(channel));
+            var client = new Client(new Medical.Patient.PatientClient(channel));
             Console.WriteLine("Enter your name:");
             var name = Console.ReadLine();
             client.GetFilteredResults(name);

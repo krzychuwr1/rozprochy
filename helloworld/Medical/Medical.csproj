@@ -8,7 +8,7 @@
     <ProjectGuid>{724DFC8C-4B57-4C3F-811C-0463BE2A2829}</ProjectGuid>
     <OutputType>Library</OutputType>
     <RootNamespace>Medical</RootNamespace>
-    <AssemblyName>Greeter</AssemblyName>
+    <AssemblyName>Medical</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>

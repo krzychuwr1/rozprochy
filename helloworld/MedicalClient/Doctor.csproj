@@ -7,8 +7,8 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{ACCF4597-3748-4117-8633-1CB767F8CCC3}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>GreeterClient</RootNamespace>
-    <AssemblyName>GreeterClient</AssemblyName>
+    <RootNamespace>Doctor</RootNamespace>
+    <AssemblyName>Doctor</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
