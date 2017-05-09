@@ -42,14 +42,14 @@ namespace Medical {
   {
     static readonly string __ServiceName = "medical.Doctor";
 
-    static readonly grpc::Marshaller<global::Medical.QueryParams> __Marshaller_QueryParams = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Medical.QueryParams.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Medical.FilterRequest> __Marshaller_FilterRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Medical.FilterRequest.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Medical.MedicalResult> __Marshaller_MedicalResult = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Medical.MedicalResult.Parser.ParseFrom);
 
-    static readonly grpc::Method<global::Medical.QueryParams, global::Medical.MedicalResult> __Method_GetResults = new grpc::Method<global::Medical.QueryParams, global::Medical.MedicalResult>(
+    static readonly grpc::Method<global::Medical.FilterRequest, global::Medical.MedicalResult> __Method_GetResults = new grpc::Method<global::Medical.FilterRequest, global::Medical.MedicalResult>(
         grpc::MethodType.ServerStreaming,
         __ServiceName,
         "GetResults",
-        __Marshaller_QueryParams,
+        __Marshaller_FilterRequest,
         __Marshaller_MedicalResult);
 
     /// <summary>Service descriptor</summary>
@@ -61,7 +61,7 @@ namespace Medical {
     /// <summary>Base class for server-side implementations of Doctor</summary>
     public abstract partial class DoctorBase
     {
-      public virtual global::System.Threading.Tasks.Task GetResults(global::Medical.QueryParams request, grpc::IServerStreamWriter<global::Medical.MedicalResult> responseStream, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task GetResults(global::Medical.FilterRequest request, grpc::IServerStreamWriter<global::Medical.MedicalResult> responseStream, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -91,11 +91,11 @@ namespace Medical {
       {
       }
 
-      public virtual grpc::AsyncServerStreamingCall<global::Medical.MedicalResult> GetResults(global::Medical.QueryParams request, grpc::Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      public virtual grpc::AsyncServerStreamingCall<global::Medical.MedicalResult> GetResults(global::Medical.FilterRequest request, grpc::Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
       {
         return GetResults(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual grpc::AsyncServerStreamingCall<global::Medical.MedicalResult> GetResults(global::Medical.QueryParams request, grpc::CallOptions options)
+      public virtual grpc::AsyncServerStreamingCall<global::Medical.MedicalResult> GetResults(global::Medical.FilterRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncServerStreamingCall(__Method_GetResults, null, options, request);
       }

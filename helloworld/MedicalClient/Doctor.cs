@@ -44,7 +44,7 @@ namespace Medical
             _client = client;
         }
 
-        public async Task GetFilteredResults(QueryParams filteringParameters)
+        public async Task GetFilteredResults(FilterRequest filteringParameters)
         {
             using (var call = _client.GetResults(filteringParameters))
             {
@@ -58,7 +58,7 @@ namespace Medical
 
         public async void GetAllResults()
         {
-            await GetFilteredResults(new QueryParams());
+            await GetFilteredResults(new FilterRequest());
         }
     }
     class DoctorMain
@@ -77,19 +77,18 @@ namespace Medical
                 }
                 else
                 {
-                    var query = new QueryParams();
+                    var query = new FilterRequest();
                     Console.WriteLine("By patient name:");
                     query.PatientName = Console.ReadLine();
 
                     Console.WriteLine("By record:");
                     query.RecordName = Console.ReadLine();
 
-                    Console.WriteLine("Greater then:");
-                    double value;
-                    Double.TryParse(Console.ReadLine(), out value);
-                    query.ValueGreaterThan = value;
+                    Console.WriteLine("Minimum value:");
+                    Double.TryParse(Console.ReadLine(), out double value);
+                    query.MinimalValue = value;
 
-                    client.GetFilteredResults(query);
+                    Task.Run(() => client.GetFilteredResults(query));
                 }
             }
 

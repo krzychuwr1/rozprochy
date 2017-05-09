@@ -27,10 +27,10 @@ namespace Medical {
             "CRIMCgREYXRlGAMgASgDEiAKB1JlY29yZHMYBCADKAsyDy5tZWRpY2FsLlJl",
             "Y29yZCIzCgZSZWNvcmQSDAoETmFtZRgBIAEoCRINCgVWYWx1ZRgCIAEoARIM",
             "CgRVbml0GAMgASgJIh4KDlBhdGllbnRSZXF1ZXN0EgwKBG5hbWUYASABKAki",
-            "YwoLUXVlcnlQYXJhbXMSEwoLcGF0aWVudE5hbWUYASABKAkSEgoKcmVjb3Jk",
-            "TmFtZRgCIAEoCRIRCgluZXdlclRoYW4YAyABKAMSGAoQdmFsdWVHcmVhdGVy",
-            "VGhhbhgEIAEoATJICgZEb2N0b3ISPgoKR2V0UmVzdWx0cxIULm1lZGljYWwu",
-            "UXVlcnlQYXJhbXMaFi5tZWRpY2FsLk1lZGljYWxSZXN1bHQiADABMkYKClRl",
+            "YQoNRmlsdGVyUmVxdWVzdBITCgtwYXRpZW50TmFtZRgBIAEoCRISCgpyZWNv",
+            "cmROYW1lGAIgASgJEhEKCXN0YXJ0RGF0ZRgDIAEoAxIUCgxtaW5pbWFsVmFs",
+            "dWUYBCABKAEySgoGRG9jdG9yEkAKCkdldFJlc3VsdHMSFi5tZWRpY2FsLkZp",
+            "bHRlclJlcXVlc3QaFi5tZWRpY2FsLk1lZGljYWxSZXN1bHQiADABMkYKClRl",
             "Y2huaWNpYW4SOAoMQWRkTmV3UmVzdWx0EhYubWVkaWNhbC5NZWRpY2FsUmVz",
             "dWx0Gg4ubWVkaWNhbC5FbXB0eSIAMkwKB1BhdGllbnQSQQoKR2V0UmVzdWx0",
             "cxIXLm1lZGljYWwuUGF0aWVudFJlcXVlc3QaFi5tZWRpY2FsLk1lZGljYWxS",
@@ -43,7 +43,7 @@ namespace Medical {
             new pbr::GeneratedClrTypeInfo(typeof(global::Medical.MedicalResult), global::Medical.MedicalResult.Parser, new[]{ "PatientName", "DoctorName", "Date", "Records" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Medical.Record), global::Medical.Record.Parser, new[]{ "Name", "Value", "Unit" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Medical.PatientRequest), global::Medical.PatientRequest.Parser, new[]{ "Name" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Medical.QueryParams), global::Medical.QueryParams.Parser, new[]{ "PatientName", "RecordName", "NewerThan", "ValueGreaterThan" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Medical.FilterRequest), global::Medical.FilterRequest.Parser, new[]{ "PatientName", "RecordName", "StartDate", "MinimalValue" }, null, null, null)
           }));
     }
     #endregion
@@ -622,10 +622,10 @@ namespace Medical {
 
   }
 
-  public sealed partial class QueryParams : pb::IMessage<QueryParams> {
-    private static readonly pb::MessageParser<QueryParams> _parser = new pb::MessageParser<QueryParams>(() => new QueryParams());
+  public sealed partial class FilterRequest : pb::IMessage<FilterRequest> {
+    private static readonly pb::MessageParser<FilterRequest> _parser = new pb::MessageParser<FilterRequest>(() => new FilterRequest());
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<QueryParams> Parser { get { return _parser; } }
+    public static pb::MessageParser<FilterRequest> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
@@ -638,23 +638,23 @@ namespace Medical {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public QueryParams() {
+    public FilterRequest() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public QueryParams(QueryParams other) : this() {
+    public FilterRequest(FilterRequest other) : this() {
       patientName_ = other.patientName_;
       recordName_ = other.recordName_;
-      newerThan_ = other.newerThan_;
-      valueGreaterThan_ = other.valueGreaterThan_;
+      startDate_ = other.startDate_;
+      minimalValue_ = other.minimalValue_;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public QueryParams Clone() {
-      return new QueryParams(this);
+    public FilterRequest Clone() {
+      return new FilterRequest(this);
     }
 
     /// <summary>Field number for the "patientName" field.</summary>
@@ -679,35 +679,35 @@ namespace Medical {
       }
     }
 
-    /// <summary>Field number for the "newerThan" field.</summary>
-    public const int NewerThanFieldNumber = 3;
-    private long newerThan_;
+    /// <summary>Field number for the "startDate" field.</summary>
+    public const int StartDateFieldNumber = 3;
+    private long startDate_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public long NewerThan {
-      get { return newerThan_; }
+    public long StartDate {
+      get { return startDate_; }
       set {
-        newerThan_ = value;
+        startDate_ = value;
       }
     }
 
-    /// <summary>Field number for the "valueGreaterThan" field.</summary>
-    public const int ValueGreaterThanFieldNumber = 4;
-    private double valueGreaterThan_;
+    /// <summary>Field number for the "minimalValue" field.</summary>
+    public const int MinimalValueFieldNumber = 4;
+    private double minimalValue_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public double ValueGreaterThan {
-      get { return valueGreaterThan_; }
+    public double MinimalValue {
+      get { return minimalValue_; }
       set {
-        valueGreaterThan_ = value;
+        minimalValue_ = value;
       }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as QueryParams);
+      return Equals(other as FilterRequest);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(QueryParams other) {
+    public bool Equals(FilterRequest other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -716,8 +716,8 @@ namespace Medical {
       }
       if (PatientName != other.PatientName) return false;
       if (RecordName != other.RecordName) return false;
-      if (NewerThan != other.NewerThan) return false;
-      if (ValueGreaterThan != other.ValueGreaterThan) return false;
+      if (StartDate != other.StartDate) return false;
+      if (MinimalValue != other.MinimalValue) return false;
       return true;
     }
 
@@ -726,8 +726,8 @@ namespace Medical {
       int hash = 1;
       if (PatientName.Length != 0) hash ^= PatientName.GetHashCode();
       if (RecordName.Length != 0) hash ^= RecordName.GetHashCode();
-      if (NewerThan != 0L) hash ^= NewerThan.GetHashCode();
-      if (ValueGreaterThan != 0D) hash ^= ValueGreaterThan.GetHashCode();
+      if (StartDate != 0L) hash ^= StartDate.GetHashCode();
+      if (MinimalValue != 0D) hash ^= MinimalValue.GetHashCode();
       return hash;
     }
 
@@ -746,13 +746,13 @@ namespace Medical {
         output.WriteRawTag(18);
         output.WriteString(RecordName);
       }
-      if (NewerThan != 0L) {
+      if (StartDate != 0L) {
         output.WriteRawTag(24);
-        output.WriteInt64(NewerThan);
+        output.WriteInt64(StartDate);
       }
-      if (ValueGreaterThan != 0D) {
+      if (MinimalValue != 0D) {
         output.WriteRawTag(33);
-        output.WriteDouble(ValueGreaterThan);
+        output.WriteDouble(MinimalValue);
       }
     }
 
@@ -765,17 +765,17 @@ namespace Medical {
       if (RecordName.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(RecordName);
       }
-      if (NewerThan != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(NewerThan);
+      if (StartDate != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(StartDate);
       }
-      if (ValueGreaterThan != 0D) {
+      if (MinimalValue != 0D) {
         size += 1 + 8;
       }
       return size;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(QueryParams other) {
+    public void MergeFrom(FilterRequest other) {
       if (other == null) {
         return;
       }
@@ -785,11 +785,11 @@ namespace Medical {
       if (other.RecordName.Length != 0) {
         RecordName = other.RecordName;
       }
-      if (other.NewerThan != 0L) {
-        NewerThan = other.NewerThan;
+      if (other.StartDate != 0L) {
+        StartDate = other.StartDate;
       }
-      if (other.ValueGreaterThan != 0D) {
-        ValueGreaterThan = other.ValueGreaterThan;
+      if (other.MinimalValue != 0D) {
+        MinimalValue = other.MinimalValue;
       }
     }
 
@@ -810,11 +810,11 @@ namespace Medical {
             break;
           }
           case 24: {
-            NewerThan = input.ReadInt64();
+            StartDate = input.ReadInt64();
             break;
           }
           case 33: {
-            ValueGreaterThan = input.ReadDouble();
+            MinimalValue = input.ReadDouble();
             break;
           }
         }

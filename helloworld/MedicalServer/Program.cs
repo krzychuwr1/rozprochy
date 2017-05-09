@@ -60,23 +60,23 @@ namespace MedicalServer
 
     class DoctorImplementation : Doctor.DoctorBase
     {
-        public override async Task GetResults(QueryParams request, IServerStreamWriter<MedicalResult> responseStream, ServerCallContext context)
+        public override async Task GetResults(FilterRequest request, IServerStreamWriter<MedicalResult> responseStream, ServerCallContext context)
         {
             IEnumerable<MedicalResult> resultsToReturn = DataBase.Results;
             if (!string.IsNullOrWhiteSpace(request.PatientName))
             {
                 resultsToReturn = resultsToReturn.Where(x => x.PatientName.Contains(request.PatientName));
             }
-            if (request.NewerThan != 0)
+            if (request.StartDate != 0)
             {
-                resultsToReturn = resultsToReturn.Where(x => x.Date > request.NewerThan);
+                resultsToReturn = resultsToReturn.Where(x => x.Date > request.StartDate);
             }
             if (!string.IsNullOrWhiteSpace(request.RecordName))
             {
                 resultsToReturn = resultsToReturn
                     .Where(x => x.Records.Select(y => y.Name).Contains(request.RecordName))
                     .Where(x => x.Records.Where(y => y.Name.Equals(request.RecordName))
-                    .Any(y => y.Value > request.ValueGreaterThan));
+                    .Any(y => y.Value > request.MinimalValue));
             }
 
             foreach (var result in resultsToReturn)
